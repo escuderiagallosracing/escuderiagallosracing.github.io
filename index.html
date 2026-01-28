@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallos Racing | F1 in Schools Team</title>
+    <link rel="icon" type="image/png" href="static/img/LOGO.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --primary: #2d2e6f; /* Tu morado oscuro */
+            --primary-light: #2d2e6f; 
+            --secondary: #3B82F6; /* Azul */
+            --accent: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+
+        /* Barra de progreso de lectura */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+            z-index: 100;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--primary-light);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 20px 40px -15px rgba(43, 22, 92, 0.5);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gradient:hover {
+            filter: brightness(1.2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #2d2e6f, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1rem;
+            min-width: 85px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Animaciones de entrada */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .img-zoom {
+            transition: transform 0.5s ease;
+        }
+        .img-zoom:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="progress-bar"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 mr-3 flex items-center justify-center bg-white/5 rounded-xl border border-white/10 p-1">
+                        <img src="static/img/LOGO.png" alt="Logo" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xl font-orbitron font-bold tracking-tighter hidden sm:block">
+                        GALLOS <span class="text-gradient">RACING</span>
+                    </span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-xs font-semibold uppercase tracking-widest hover:text-blue-400 transition-colors">Inicio</a>
+                    <a href="#equipo" class="text-xs font-semibold uppercase tracking-widest hover:text-blue-400 transition-colors">Equipo</a>
+                    <a href="#ingenieria" class="text-xs font-semibold uppercase tracking-widest hover:text-blue-400 transition-colors">Ingeniería</a>
+                    <a href="#patrocinadores" class="text-xs font-semibold uppercase tracking-widest hover:text-blue-400 transition-colors">Patrocinios</a>
+                    <a href="https://www.instagram.com/gallos229_racingteam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="px-5 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
+                        <i class="fab fa-instagram mr-2"></i> Instagram
+                    </a>
+                </div>
+                <div class="md:hidden text-white text-2xl cursor-pointer" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-[60] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center space-y-8 text-2xl font-orbitron">
+        <a href="#inicio" onclick="toggleMenu()" class="hover:text-blue-400 transition-colors">Inicio</a>
+        <a href="#equipo" onclick="toggleMenu()" class="hover:text-blue-400 transition-colors">Equipo</a>
+        <a href="#ingenieria" onclick="toggleMenu()" class="hover:text-blue-400 transition-colors">Ingeniería</a>
+        <a href="#patrocinadores" onclick="toggleMenu()" class="hover:text-blue-400 transition-colors">Patrocinios</a>
+        <a href="https://www.instagram.com/gallos229_racingteam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-blue-400"><i class="fab fa-instagram mr-2"></i>INSTAGRAM</a>
+        <button onclick="toggleMenu()" class="absolute top-8 right-8 text-white"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-gradient min-h-screen flex items-center justify-center relative pt-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black"></div>
+        <div class="relative z-10 text-center px-4 w-full max-w-5xl">
+            <h2 class="text-blue-400 font-orbitron text-sm md:text-lg mb-4 tracking-[0.5em] uppercase animate-pulse">Tehuacán, Puebla, México</h2>
+            <h1 class="text-5xl md:text-9xl font-orbitron font-bold mb-8 italic tracking-tighter leading-none">GALLOS <span class="text-gradient">RACING</span></h1>
+            
+            <!-- Contador -->
+            <div class="mb-12 reveal">
+                <p class="font-orbitron text-xs tracking-[0.4em] mb-6 text-gray-400 uppercase">Tiempo restante para la competencia</p>
+                <div id="countdown" class="flex flex-wrap justify-center gap-4 md:gap-8 font-orbitron">
+                    <div class="countdown-box border-b-4 border-b-indigo-500">
+                        <span id="days" class="block text-3xl md:text-5xl font-bold">00</span>
+                        <span class="text-[10px] uppercase tracking-widest text-gray-500">Días</span>
+                    </div>
+                    <div class="countdown-box border-b-4 border-b-blue-500">
+                        <span id="hours" class="block text-3xl md:text-5xl font-bold">00</span>
+                        <span class="text-[10px] uppercase tracking-widest text-gray-500">Horas</span>
+                    </div>
+                    <div class="countdown-box border-b-4 border-b-indigo-500">
+                        <span id="minutes" class="block text-3xl md:text-5xl font-bold">00</span>
+                        <span class="text-[10px] uppercase tracking-widest text-gray-500">Minutos</span>
+                    </div>
+                    <div class="countdown-box border-b-4 border-b-blue-500">
+                        <span id="seconds" class="block text-3xl md:text-5xl font-bold">00</span>
+                        <span class="text-[10px] uppercase tracking-widest text-gray-500">Segundos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center reveal" style="transition-delay: 0.2s">
+                <a href="https://www.instagram.com/gallos229_racingteam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-gradient px-12 py-5 rounded-full text-xs font-bold tracking-[0.2em] uppercase">
+                    <i class="fab fa-instagram mr-3 text-lg"></i> Seguir el progreso
+                </a>
+                <a href="#equipo" class="backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 px-12 py-5 rounded-full transition-all text-xs font-bold tracking-[0.2em] uppercase">Conocer Equipo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="equipo" class="py-32 bg-black relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold">NUESTRA <span class="text-gradient">ALINEACIÓN</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-500 mx-auto mt-6"></div>
+                <p class="text-gray-500 mt-6 uppercase tracking-[0.3em] text-xs font-semibold">Pasión por la ingeniería y el diseño</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Member 1 -->
+                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-indigo-600 reveal">
+                    <div class="w-28 h-28 bg-indigo-900/20 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-indigo-500/30 transform rotate-3">
+                        <i class="fas fa-crown text-4xl text-indigo-400 transform -rotate-3"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-orbitron mb-2">José Pérez</h3>
+                    <p class="text-indigo-400 text-[10px] uppercase font-black tracking-[0.3em]">Líder de Equipo</p>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-blue-600 reveal" style="transition-delay: 0.1s">
+                    <div class="w-28 h-28 bg-blue-900/20 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-blue-500/30 transform -rotate-3">
+                        <i class="fas fa-palette text-4xl text-blue-400 transform rotate-3"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-orbitron mb-2">Josami Muñoz</h3>
+                    <p class="text-blue-400 text-[10px] uppercase font-black tracking-[0.3em]">Diseñadora Gráfica</p>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-indigo-600 reveal" style="transition-delay: 0.2s">
+                    <div class="w-28 h-28 bg-indigo-900/20 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-indigo-500/30 transform rotate-3">
+                        <i class="fas fa-car text-4xl text-indigo-400 transform -rotate-3"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-orbitron mb-2">Jimena Monterrosa</h3>
+                    <p class="text-indigo-400 text-[10px] uppercase font-black tracking-[0.3em]">Diseñadora del Coche</p>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-blue-600 reveal">
+                    <div class="w-28 h-28 bg-blue-900/20 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-blue-500/30 transform -rotate-3">
+                        <i class="fas fa-tools text-4xl text-blue-400 transform rotate-3"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-orbitron mb-2">Asaf Flores</h3>
+                    <p class="text-blue-400 text-[10px] uppercase font-black tracking-[0.3em]">Manufactura</p>
+                </div>
+
+                <!-- Member 5 -->
+                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-indigo-600 reveal" style="transition-delay: 0.1s">
+                    <div class="w-28 h-28 bg-indigo-900/20 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-indigo-500/30 transform rotate-3">
+                        <i class="fas fa-handshake text-4xl text-indigo-400 transform -rotate-3"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-orbitron mb-2">Ivan Morales</h3>
+                    <p class="text-indigo-400 text-[10px] uppercase font-black tracking-[0.3em]">Patrocinios</p>
+                </div>
+
+                <!-- Member 6 -->
+                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-blue-600 reveal" style="transition-delay: 0.2s">
+                    <div class="w-28 h-28 bg-blue-900/20 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-blue-500/30 transform -rotate-3">
+                        <i class="fas fa-dollar-sign text-4xl text-blue-400 transform rotate-3"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-orbitron mb-2">Sandoval Salvador</h3>
+                    <p class="text-blue-400 text-[10px] uppercase font-black tracking-[0.3em]">Finanzas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Section -->
+    <section id="ingenieria" class="py-32 bg-[#050505] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                <div class="relative reveal">
+                    <div class="absolute -top-10 -left-10 w-64 h-64 bg-indigo-600/10 rounded-full blur-[100px]"></div>
+                    <div class="relative z-10 p-4 bg-white/5 rounded-[2.5rem] border border-white/10 group overflow-hidden shadow-2xl">
+                        <img src="static/img/F1_coche jimena5.png" alt="Coche GR-V1" class="rounded-[2rem] w-full img-zoom object-cover">
+                    </div>
+                </div>
+                <div class="reveal" style="transition-delay: 0.3s">
+                    <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-8 italic leading-tight">TECNOLOGÍA <span class="text-gradient underline decoration-blue-500/30">GR-V1</span></h2>
+                    <p class="text-gray-400 mb-10 leading-relaxed text-lg font-light italic">
+                        "La aerodinámica es el arte de esculpir el viento. Con el GR-V1 hemos logrado reducir el drag en un 15% manteniendo la estabilidad en curvas de alta velocidad."
+                        <br><br>
+                        — <span class="text-white font-bold tracking-widest uppercase text-sm">Jimena Monterrosa</span>
+                    </p>
+                   <div class="grid grid-cols-2 gap-6">
+                        <a href="analisis-cfd.html" class="block p-8 glass-card rounded-3xl hover:border-indigo-500 transition-all">
+                        <i class="fas fa-wind text-indigo-400 text-3xl mb-4"></i>
+                        <h4 class="font-bold text-xs uppercase tracking-widest text-indigo-400">Análisis CFD</h4>
+                        <p class="text-[10px] text-gray-500 mt-2">Simulación de fluidos de alta precisión.</p>
+                        </a>
+
+                        <a href="manufactura-cnc.html" class="block p-8 glass-card rounded-3xl hover:border-blue-500 transition-all">
+                        <i class="fas fa-microchip text-blue-400 text-3xl mb-4"></i>
+                        <h4 class="font-bold text-xs uppercase tracking-widest text-blue-400">Manufactura CNC</h4>
+                        <p   p class="text-[10px] text-gray-500 mt-2">Precisión milimétrica en cada pieza.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+
+    <!-- Sponsors Section -->
+    <section id="patrocinadores" class="py-32 bg-black">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="reveal mb-20">
+                <h2 class="text-3xl md:text-4xl font-orbitron font-bold mb-4 uppercase tracking-[0.4em]">SOCIOS <span class="text-gradient">ESTRATÉGICOS</span></h2>
+                <p class="text-gray-500 text-xs font-bold tracking-[0.2em] uppercase">Empresas que impulsan nuestro sueño</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-24">
+    
+    <a href="hydrocell.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
+        <img src="static/img/WhatsApp Image 2026-01-07 at 10.59.46 AM.jpeg" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
+    </a>
+
+    <a href="https://paginadelpatrocinador.com" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
+        <img src="static/img/Logo_prax_recurso1.png" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
+    </a>
+    
+    <a href="rexcue.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
+        <img src="static/img/Rexcue.jpg" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
+    </a>
+    
+    <div class="w-full aspect-video glass-card flex items-center justify-center rounded-2xl reveal border-dashed" style="transition-delay: 0.3s">
+        <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo Aquí</span>
+    </div>
+</div>
+
+            <div class="mt-24 p-12 glass-card rounded-[3rem] max-w-4xl mx-auto border-indigo-500/20 reveal relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+                <h3 class="text-3xl font-orbitron font-bold mb-6 italic tracking-tight">¿QUIERES SER PARTE DEL <span class="text-blue-400">ÉXITO</span>?</h3>
+                <p class="text-gray-400 mb-10 text-lg leading-relaxed max-w-2xl mx-auto font-light">
+                    Únete a la familia de Gallos Racing. Contamos con paquetes de patrocinio diseñados para dar la máxima visibilidad a tu marca en competencias nacionales e internacionales.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="https://www.instagram.com/gallos229_racingteam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-gradient px-12 py-5 rounded-2xl text-xs font-black tracking-[0.2em] uppercase w-full sm:w-auto">
+                        Solicitar Dossier de Patrocinio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5 bg-[#030303]">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
+                <div class="flex items-center">
+                    <img src="static/img/LOGO.png" alt="Logo" class="w-10 h-10 mr-4">
+                    <div class="text-xl font-orbitron font-bold">
+                        GALLOS <span class="text-gradient">RACING</span>
+                    </div>
+                </div>
+                <div class="flex space-x-8 text-2xl">
+                    <a href="https://www.instagram.com/gallos229_racingteam" target="_blank" class="text-gray-500 hover:text-blue-400 transition-all transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-blue-400 transition-all transform hover:scale-110"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-blue-400 transition-all transform hover:scale-110"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left border-y border-white/5 py-10 mb-10">
+                <div>
+                    <h5 class="font-bold text-xs uppercase tracking-widest mb-4 text-blue-400">Ubicación</h5>
+                    <p class="text-gray-500 text-sm italic">Tehuacán,Puebla, México</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-xs uppercase tracking-widest mb-4 text-blue-400">Competencia</h5>
+                    <p class="text-gray-500 text-sm italic">F1 in Schools Mexico 2026 Dgti/BP</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-xs uppercase tracking-widest mb-4 text-blue-400">Contacto</h5>
+                    <p class="text-gray-500 text-sm italic">Vía Directa Instagram</p>
+                </div>
+            </div>
+            <p class="text-gray-700 text-[10px] text-center uppercase tracking-[0.5em]">© 2024-2026 Gallos Racing Team. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Barra de progreso y Revelación de elementos
+        window.addEventListener('scroll', () => {
+            // Barra de progreso
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+
+            // Reveal
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const revealTop = el.getBoundingClientRect().top;
+                const revealPoint = 100;
+                if (revealTop < windowHeight - revealPoint) {
+                    el.classList.add('active');
+                }
+            });
+        });
+
+        // Forzar primera revisión de reveal
+        window.dispatchEvent(new Event('scroll'));
+
+        // Contador de tiempo
+        const countdownDate = new Date("March 9, 2026 00:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<span class='text-gradient text-3xl font-bold'>¡DÍA DE CARRERA!</span>";
+            }
+        }, 1000);
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
