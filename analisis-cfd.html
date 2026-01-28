@@ -28,27 +28,119 @@
             <p class="text-gray-400 tracking-[0.3em] uppercase text-sm font-light">Optimización del Flujo de Aire GR-V1</p>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            <div class="glass-card p-8 rounded-3xl text-center border-b-4 border-indigo-500">
-                <span class="text-4xl font-bold font-orbitron block mb-2">0.18</span>
-                <span class="text-gray-500 text-xs uppercase tracking-widest font-bold">Coeficiente de Arrastre (Cd)</span>
+        <section class="py-20 bg-[#03030a] text-white">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+                <h2 class="text-5xl font-orbitron font-black italic tracking-tighter">
+                    CFD <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">DATALOG</span>
+                </h2>
+                <p class="text-blue-300/50 font-mono text-sm mt-2">>> Mapeo completo de 131 superficies analizadas</p>
             </div>
-            <div class="glass-card p-8 rounded-3xl text-center border-b-4 border-blue-500">
-                <span class="text-4xl font-bold font-orbitron block mb-2">15%</span>
-                <span class="text-gray-500 text-xs uppercase tracking-widest font-bold">Reducción de Drag</span>
-            </div>
-            <div class="glass-card p-8 rounded-3xl text-center border-b-4 border-indigo-500">
-                <span class="text-4xl font-bold font-orbitron block mb-2">2.4N</span>
-                <span class="text-gray-500 text-xs uppercase tracking-widest font-bold">Downforce @ 20m/s</span>
+            <div class="bg-blue-950/30 border border-blue-500/30 p-4 rounded-xl">
+                <span class="text-[10px] text-gray-400 block uppercase mb-1">Status de Simulación</span>
+                <span class="text-green-400 font-mono animate-pulse">● CONVERGENCIA ALCANZADA</span>
             </div>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            
+            <div class="glass-card p-6 rounded-2xl border-b-2 border-blue-600 bg-gradient-to-b from-transparent to-blue-900/10">
+                <p class="text-[10px] uppercase tracking-widest text-blue-400 mb-2">Resistencia Total (Drag)</p>
+                <div class="text-3xl font-orbitron font-bold">0.0071<span class="text-sm ml-1 text-gray-500">N</span></div>
+                <p class="text-[10px] text-gray-500 mt-2">Suma vectorial de FX en todos los IDs.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border-b-2 border-purple-600 bg-gradient-to-b from-transparent to-purple-900/10">
+                <p class="text-[10px] uppercase tracking-widest text-purple-400 mb-2">Carga Vertical (FY)</p>
+                <div class="text-3xl font-orbitron font-bold">-0.1152<span class="text-sm ml-1 text-gray-500">N</span></div>
+                <p class="text-[10px] text-gray-500 mt-2">Fuerza descendente en superficie principal.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border-b-2 border-blue-600 bg-gradient-to-b from-transparent to-blue-900/10">
+                <p class="text-[10px] uppercase tracking-widest text-blue-400 mb-2">Desviación Lateral (FZ)</p>
+                <div class="text-3xl font-orbitron font-bold">-0.0488<span class="text-sm ml-1 text-gray-500">N</span></div>
+                <p class="text-[10px] text-gray-500 mt-2">Balance de flujo en el eje Z.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border-b-2 border-purple-600 bg-gradient-to-b from-transparent to-purple-900/10">
+                <p class="text-[10px] uppercase tracking-widest text-purple-400 mb-2">Área de Superficie</p>
+                <div class="text-3xl font-orbitron font-bold">39.85<span class="text-sm ml-1 text-gray-500">cm²</span></div>
+                <p class="text-[10px] text-gray-500 mt-2">Área total acumulada (131 IDs).</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="lg:col-span-1 glass-card p-8 rounded-3xl border border-white/5 bg-black/40">
+                <h3 class="font-orbitron text-lg font-bold text-white mb-6 uppercase italic">Centro de Presión</h3>
+                <div class="space-y-6 font-mono text-sm">
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-500">Eje X:</span>
+                        <span class="text-blue-400">0.0312 m</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-500">Eje Y:</span>
+                        <span class="text-purple-400">0.0001 m</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-500">Eje Z:</span>
+                        <span class="text-blue-400">0.0001 m</span>
+                    </div>
+                </div>
+                <p class="mt-6 text-[10px] text-gray-400 leading-relaxed">
+                    Este punto indica dónde se concentra la fuerza del aire. Un centro de presión cercano al centro de masa garantiza estabilidad en la pista.
+                </p>
+            </div>
+
+            <div class="lg:col-span-2 glass-card rounded-3xl overflow-hidden border border-white/5">
+                <div class="p-6 bg-gradient-to-r from-blue-900/20 to-purple-900/20 border-b border-white/5">
+                    <h3 class="font-orbitron text-sm font-bold uppercase tracking-widest text-white">Top Superficies de Impacto</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-[11px] font-mono">
+                        <thead class="bg-black/50 text-gray-500 uppercase">
+                            <tr>
+                                <th class="p-4">ID</th>
+                                <th class="p-4">Área (m²)</th>
+                                <th class="p-4">FX (Drag)</th>
+                                <th class="p-4">FY (Downforce)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            <tr>
+                                <td class="p-4 text-blue-400 font-bold">131</td>
+                                <td class="p-4">0.003227</td>
+                                <td class="p-4">-0.00077</td>
+                                <td class="p-4 text-purple-400">-0.11521</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-blue-400 font-bold">3</td>
+                                <td class="p-4">0.000312</td>
+                                <td class="p-4 text-orange-400">0.00628</td>
+                                <td class="p-4">0.00002</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-blue-400 font-bold">2</td>
+                                <td class="p-4">0.000312</td>
+                                <td class="p-4 text-orange-400">0.00090</td>
+                                <td class="p-4 text-gray-300">0.00004</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
         <div class="glass-card rounded-[3rem] overflow-hidden mb-20">
             <div class="p-10 border-b border-white/10">
                 <h2 class="text-2xl font-orbitron font-bold">TÚNEL DE VIENTO VIRTUAL</h2>
             </div>
             <div class="aspect-video bg-gray-900 flex items-center justify-center">
-                <img src="static/img/cfd-simulacion.jpg" alt="Simulación CFD" class="w-full h-full object-cover opacity-80">
+                <img src="static/img/gr-v1/cfdimagen.png" alt="Simulación CFD" class="w-full h-full object-cover opacity-80">
             </div>
         </div>
     </main>
