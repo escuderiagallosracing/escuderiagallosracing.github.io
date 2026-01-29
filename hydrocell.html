@@ -7,177 +7,215 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
         
         :root {
             --hydro-blue: #0ea5e9;
-            --hydro-dark: #0c4a6e;
-            --glass: rgba(255, 255, 255, 0.03);
+            --hydro-cyan: #22d3ee;
+            --hydro-dark: #020617;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #020617;
+            background-color: var(--hydro-dark);
             color: #ffffff;
             scroll-behavior: smooth;
         }
 
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
 
+        /* Tarjetas con efecto cristal mejorado */
         .glass-card {
-            background: var(--glass);
+            background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(14, 165, 233, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .glass-card:hover {
-            border-color: var(--hydro-blue);
-            background: rgba(14, 165, 233, 0.05);
+            border-color: var(--hydro-cyan);
+            background: rgba(14, 165, 233, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.3);
         }
 
+        /* Hero con overlay dinámico */
         .hero-hydro {
-            background: linear-gradient(rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.95)), 
-                        url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.9)), 
+                        url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
 
+        /* Corrección de degradado: De Cian a Blanco */
         .text-gradient-blue {
-            background: linear-gradient(90deg, #e90e24, #ffffff);
+            background: linear-gradient(90deg, #0ea5e9, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        /* Animación de pulso para elementos tecnológicos */
+        .tech-pulse {
+            box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(14, 165, 233, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
         }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 bg-black/50 backdrop-blur-md border-b border-white/5">
+    <nav class="fixed w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <span class="font-orbitron font-bold tracking-tighter text-xl">HYDROCELL</span>
+                <div class="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-droplet text-black text-sm"></i>
+                </div>
+                <span class="font-orbitron font-black tracking-tighter text-2xl italic">HYDROCELL</span>
             </div>
-            <a href="index.html" class="text-xs font-orbitron hover:text-sky-400 transition-colors tracking-widest uppercase">
-                <i class="fas fa-chevron-left mr-2"></i> Volver a Gallos Racing
+            <a href="index.html" class="text-[10px] font-orbitron font-bold hover:text-sky-400 transition-all tracking-[0.3em] uppercase bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                <i class="fas fa-arrow-left mr-2"></i> Gallos Racing
             </a>
         </div>
     </nav>
 
     <section class="hero-hydro min-h-screen flex items-center pt-20">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-sky-500 font-orbitron text-sm tracking-[0.4em] mb-4 uppercase">Socio Tecnológico</h2>
-                <h1 class="text-6xl md:text-8xl font-orbitron font-bold leading-none mb-6">POTENCIA <br> <span class="text-gradient-blue italic">HIDRÁULICA</span></h1>
-                <p class="text-gray-400 text-lg mb-10 max-w-lg leading-relaxed">
-                    Especialistas en la distribución y mantenimiento de sistemas hidráulicos de alta presión y componentes mecánicos industriales.
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div>
+                    <span class="inline-block px-3 py-1 bg-sky-500/10 border border-sky-500/20 rounded-full text-sky-400 font-orbitron text-[10px] tracking-widest uppercase mb-4">Industrial Technology Partner</span>
+                    <h1 class="text-7xl md:text-8xl font-orbitron font-black leading-[0.9] mb-4 tracking-tighter">POTENCIA <br> <span class="text-gradient-blue italic">FLUIDA</span></h1>
+                    <div class="h-2 w-24 bg-sky-500 rounded-full"></div>
+                </div>
+                <p class="text-gray-400 text-lg max-w-lg leading-relaxed font-light">
+                    Expertos en distribución y soporte técnico de <span class="text-white font-semibold">sistemas hidráulicos de alta presión</span>. Elevamos el estándar industrial con componentes mecánicos de precisión.
                 </p>
-                <div class="flex gap-4">
-                    <a href="#contacto" class="bg-sky-500 hover:bg-sky-400 text-black px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest transition-all">
-                        Contactar Asesor
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contacto" class="tech-pulse bg-sky-500 hover:bg-white hover:text-black text-black px-10 py-4 rounded-xl font-black uppercase text-xs tracking-widest transition-all duration-500">
+                        Consultar Ingeniería
                     </a>
                 </div>
             </div>
-            <div class="w-64 h-64 md:w-80 md:h-80 glass-card p-8 rounded-[3rem] flex items-center justify-center border-dashed border-2 border-blue-500/30 relative group">
-                <div class="text-center">
 
-                    <img src="static/img/WhatsApp Image 2026-01-07 at 10.59.46 AM.jpeg">
+            <div class="relative group justify-self-center lg:justify-self-end">
+                <div class="absolute -inset-4 bg-sky-500/20 rounded-[4rem] blur-3xl group-hover:bg-sky-500/30 transition duration-1000"></div>
+                <div class="relative glass-card p-4 rounded-[3.5rem] border-2 border-sky-500/20 overflow-hidden shadow-2xl">
+                    <img src="static/img/WhatsApp Image 2026-01-07 at 10.59.46 AM.jpeg" alt="Logo Hydrocell" class="w-72 h-72 md:w-96 md:h-96 object-cover rounded-[3rem] brightness-110 group-hover:scale-105 transition duration-700">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 bg-slate-950">
+    <section class="py-32 relative">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-orbitron font-bold mb-4">SOLUCIONES <span class="text-sky-500">TÉCNICAS</span></h2>
-                <div class="w-20 h-1 bg-sky-500 mx-auto"></div>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-4xl font-orbitron font-black mb-4 uppercase italic">Capacidades <span class="text-sky-500">Técnicas</span></h2>
+                    <p class="text-gray-500 text-sm">Suministramos la tecnología necesaria para que la industria y la competición nunca se detengan.</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-6xl font-orbitron font-black opacity-5 text-sky-500">SOLUTIONS</span>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card p-10 rounded-3xl">
-                    <div class="w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-oil-can text-2xl text-sky-500"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-10 rounded-[2.5rem] group">
+                    <div class="w-16 h-16 bg-sky-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-sky-500 transition-colors duration-500">
+                        <i class="fas fa-oil-can text-3xl text-sky-500 group-hover:text-black transition-colors duration-500"></i>
                     </div>
-                    <h3 class="font-orbitron text-xl mb-4">Sistemas Hidráulicos</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Bombas, cilindros y válvulas de control para aplicaciones industriales pesadas.</p>
+                    <h3 class="font-orbitron text-xl font-bold mb-4 text-white">Sistemas Hidráulicos</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6 font-light">Bombas de pistones, cilindros de doble efecto y válvulas de control de flujo para máxima presión.</p>
+                    <div class="h-1 w-0 group-hover:w-full bg-sky-500 transition-all duration-500"></div>
                 </div>
 
-                <div class="glass-card p-10 rounded-3xl">
-                    <div class="w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-tools text-2xl text-sky-500"></i>
+                <div class="glass-card p-10 rounded-[2.5rem] group">
+                    <div class="w-16 h-16 bg-sky-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-sky-500 transition-colors duration-500">
+                        <i class="fas fa-microchip text-3xl text-sky-500 group-hover:text-black transition-colors duration-500"></i>
                     </div>
-                    <h3 class="font-orbitron text-xl mb-4">Componentes Mecánicos</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Engranajes de precisión, rodamientos y transmisión de potencia mecánica.</p>
+                    <h3 class="font-orbitron text-xl font-bold mb-4 text-white">Mecánica Pro</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6 font-light">Transmisión de potencia, rodamientos de alta velocidad y engranajes de precisión quirúrgica.</p>
+                    <div class="h-1 w-0 group-hover:w-full bg-sky-500 transition-all duration-500"></div>
                 </div>
 
-                <div class="glass-card p-10 rounded-3xl">
-                    <div class="w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-project-diagram text-2xl text-sky-500"></i>
+                <div class="glass-card p-10 rounded-[2.5rem] group">
+                    <div class="w-16 h-16 bg-sky-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-sky-500 transition-colors duration-500">
+                        <i class="fas fa-vial text-3xl text-sky-500 group-hover:text-black transition-colors duration-500"></i>
                     </div>
-                    <h3 class="font-orbitron text-xl mb-4">Ingeniería a Medida</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Diseño y asesoramiento técnico para proyectos de automatización.</p>
+                    <h3 class="font-orbitron text-xl font-bold mb-4 text-white">Consultoría</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6 font-light">Asesoramiento especializado en la integración de componentes para Gallos Racing.</p>
+                    <div class="h-1 w-0 group-hover:w-full bg-sky-500 transition-all duration-500"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-black">
+    <section class="py-24 bg-gradient-to-b from-transparent to-sky-950/20">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="glass-card rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2">
-                <div class="p-16">
-                    <h3 class="text-3xl font-orbitron font-bold mb-6 italic">CALIDAD QUE IMPULSA EL <span class="text-sky-500">MOVIMIENTO</span></h3>
-                    <p class="text-gray-400 mb-8 leading-relaxed italic">
-                        "En Hydrocell, entendemos que la precisión es clave. Por eso apoyamos a Gallos Racing, donde cada milímetro y cada psi cuentan para alcanzar la victoria."
+            <div class="glass-card rounded-[4rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center">
+                <div class="p-16 lg:p-24 space-y-8">
+                    <div class="inline-flex items-center gap-2 text-sky-400 font-orbitron text-xs tracking-widest">
+                        <span class="w-2 h-2 bg-sky-400 rounded-full"></span> GALLOS RACING x HYDROCELL
+                    </div>
+                    <h3 class="text-4xl font-orbitron font-black leading-tight">PRECISIÓN QUE <br><span class="text-sky-500">DOMINA</span> LA PISTA</h3>
+                    <p class="text-gray-400 leading-relaxed italic text-lg font-light">
+                        "En Hydrocell, entendemos que cada PSI de presión y cada milímetro de ajuste mecánico son la diferencia entre el éxito y el fracaso. Apoyamos a Gallos Racing porque compartimos la obsesión por la perfección técnica."
                     </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3 text-sm text-gray-300">
-                            <i class="fas fa-check-circle text-sky-500"></i> Distribuidor Autorizado
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-gray-300">
-                            <i class="fas fa-check-circle text-sky-500"></i> Soporte Técnico 24/7
-                        </li>
-                    </ul>
+                    <div class="flex gap-8">
+                        <div>
+                            <p class="text-2xl font-orbitron font-bold text-white">24/7</p>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Soporte Técnico</p>
+                        </div>
+                        <div class="w-px h-10 bg-white/10"></div>
+                        <div>
+                            <p class="text-2xl font-orbitron font-bold text-white">100%</p>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Fiabilidad</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-gray-900">
-                    <img src="static/img/F1_coche jimena5.png" alt="Mecánica de precisión" class="w-full h-full object-cover opacity-60">
+                <div class="h-full min-h-[400px] relative">
+                    <img src="static/img/F1_coche jimena5.png" alt="Mecánica de precisión" class="absolute inset-0 w-full h-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#03030a] to-transparent"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="py-32 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-[150px]"></div>
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <h2 class="text-4xl font-orbitron font-bold mb-6 uppercase tracking-tighter">¿Necesitas equipo especializado?</h2>
-            <p class="text-gray-400 mb-12 text-lg">Hablemos hoy mismo sobre tu proyecto. Atendemos pedidos directos y asesorías técnicas vía telefónica.</p>
+    <section id="contacto" class="py-32 relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-orbitron font-black mb-8 tracking-tighter uppercase italic">ENGINEERING <span class="text-sky-500 font-normal">HUB</span></h2>
+            <p class="text-gray-400 mb-16 text-lg font-light">Soluciones inmediatas para requerimientos de ingeniería hidráulica y mecánica industrial.</p>
             
-            <div class="inline-flex flex-col md:flex-row gap-6 items-center justify-center w-full">
-                <div class="glass-card p-8 rounded-3xl flex items-center gap-6 w-full md:w-auto">
-                    <div class="w-16 h-16 bg-sky-500 rounded-2xl flex items-center justify-center text-black">
-                        <i class="fas fa-phone-alt text-2xl"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-10 rounded-[2.5rem] flex flex-col items-center group">
+                    <div class="w-20 h-20 bg-sky-500 rounded-3xl flex items-center justify-center text-black mb-6 rotate-3 group-hover:rotate-0 transition-transform">
+                        <i class="fas fa-phone-alt text-3xl"></i>
                     </div>
-                    <div class="text-left">
-                        <p class="text-[10px] text-sky-500 font-black tracking-widest uppercase">Atención Directa</p>
-                        <p class="text-2xl font-bold font-orbitron">(+52) 238 151 9694</p>
-                    </div>
+                    <p class="text-[10px] text-sky-500 font-black tracking-widest uppercase mb-2">Direct Line</p>
+                    <p class="text-2xl font-orbitron font-bold">(+52) 238 151 9694</p>
                 </div>
 
-                <div class="glass-card p-8 rounded-3xl flex items-center gap-6 w-full md:w-auto">
-                    <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-sky-500">
-                        <i class="fas fa-map-marker-alt text-2xl"></i>
+                <div class="glass-card p-10 rounded-[2.5rem] flex flex-col items-center group">
+                    <div class="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center text-sky-500 mb-6 -rotate-3 group-hover:rotate-0 transition-transform">
+                        <i class="fas fa-location-dot text-3xl"></i>
                     </div>
-                    <div class="text-left">
-                        <p class="text-[10px] text-gray-500 font-black tracking-widest uppercase">Ubicación</p>
-                        <p class="text-xl font-bold">Tehuacán, Puebla, México</p>
-                    </div>
+                    <p class="text-[10px] text-gray-500 font-black tracking-widest uppercase mb-2">Headquarters</p>
+                    <p class="text-xl font-bold font-orbitron">Tehuacán, Puebla</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/5 bg-black text-center">
-        <p class="text-gray-600 text-xs font-orbitron tracking-widest uppercase">
-            Hydrocell © 2026 | Partner Oficial de Gallos Racing
+    <footer class="py-16 border-t border-white/5 text-center bg-black/50">
+        <div class="flex justify-center gap-6 mb-8 text-gray-500">
+            <i class="fab fa-instagram hover:text-sky-500 cursor-pointer transition-colors"></i>
+            <i class="fab fa-linkedin hover:text-sky-500 cursor-pointer transition-colors"></i>
+        </div>
+        <p class="text-gray-600 text-[10px] font-orbitron tracking-[0.5em] uppercase">
+            Hydrocell © 2026 | Powered by Gallos Racing Engineering
         </p>
     </footer>
 

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAX | Socio Estratégico de Ingeniería</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --prax-azul: #00d4ff; /* Cian */
+            --prax-rosa: #ff007f; /* Rosa */
+            --prax-naranja: #ff8c00; /* Naranja */
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #03030a; color: white; overflow-x: hidden; }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+        
+        .bg-prax-gradient {
+            background: linear-gradient(135deg, var(--prax-azul), var(--prax-rosa), var(--prax-naranja));
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            border-color: var(--prax-azul);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .hero-prax {
+            height: 80vh;
+            background: linear-gradient(rgba(3, 3, 10, 0.6), rgba(3, 3, 10, 1)), 
+                        url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80'); /* Imagen de Arquitectura Moderna */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .text-gradient-prax {
+            background: linear-gradient(to right, var(--prax-azul), var(--prax-rosa));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-blue-500/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <h1 class="text-2xl md:text-2xl font-orbitron font-black text-white mb-4 tracking-tighter">
+                PRAX <br><span class="text-gradient-prax text-2xl md:text-2xl">INGENIERÍA Y ARQUITECTURA</span>
+            </h1>
+            <a href="index.html" class="text-xs font-orbitron text-gray-400 hover:text-pink-500 transition-colors tracking-widest uppercase">
+                <i class="fas fa-chevron-left mr-2"></i> Volver a Gallos
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero-prax flex items-center justify-center text-center px-6 relative">
+        <div class="max-w-5xl">
+            <div class="inline-block px-4 py-1 mb-6 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 font-orbitron text-[10px] tracking-widest uppercase animate-pulse">
+                Strategic Engineering Partner
+            </div>
+            <h1 class="text-6xl md:text-8xl font-orbitron font-black text-white mb-4 tracking-tighter">
+                PRAX <br><span class="text-gradient-prax text-4xl md:text-6xl">INGENIERÍA Y ARQUITECTURA</span>
+            </h1>
+            <p class="text-gray-400 font-light text-xl max-w-2xl mx-auto italic">
+                "Soluciones para el uso eficiente de espacios"
+            </p>
+        </div>
+    </header>
+
+    
+
+    <section class="py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="relative group">
+                <div class="absolute -inset-4 bg-prax-gradient rounded-[2rem] opacity-20 blur-2xl group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative glass-card p-8 rounded-[2rem] flex flex-col items-center justify-center min-h-[400px]">
+                    <img src="static/img/Logo_prax_recurso1.png" alt="">
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-4xl font-orbitron font-black mb-8 italic">INFRAESTRUCTURA QUE <span class="text-cyan-400">IMPULSA</span> EL FUTURO</h2>
+                <p class="text-gray-400 leading-relaxed text-lg mb-8">
+                    Liderada por el <strong>Arq. Rafael Herrera García</strong>, PRAX es una firma que redefine la eficiencia espacial. Su apoyo a nuestra escudería simboliza la unión entre la ingeniería a gran escala y la precisión del deporte motor.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-prax-gradient p-[1px]">
+                            <div class="w-full h-full bg-[#03030a] rounded-lg flex items-center justify-center">
+                                <i class="fas fa-drafting-compass text-cyan-400"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm uppercase">Ingeniería de Precisión</h4>
+                            <p class="text-xs text-gray-500">Optimización de estructuras y espacios.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-prax-gradient p-[1px]">
+                            <div class="w-full h-full bg-[#03030a] rounded-lg flex items-center justify-center">
+                                <i class="fas fa-vr-cardboard text-pink-500"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm uppercase">Diseño de Espacios</h4>
+                            <p class="text-xs text-gray-500">Soluciones eficientes y funcionales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#03030a] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#3b82f6 0.5px, transparent 0.5px); background-size: 20px 20px;"></div>
+
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+        <div class="glass-card p-12 rounded-[3rem] border-t-4 border-t-cyan-500 bg-gradient-to-b from-cyan-500/5 to-transparent">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/3 text-center">
+                    <div class="inline-block p-4 rounded-full bg-prax-gradient mb-4">
+                        <i class="fas fa-check-double text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-orbitron font-bold text-white tracking-widest">CALIDAD <br>CERTIFICADA</h3>
+                </div>
+                
+                <div class="md:w-2/3 border-l border-white/10 md:pl-12">
+                    <h2 class="text-3xl font-orbitron font-black text-white mb-6 italic">
+                        EL SELLO DE <span class="text-cyan-400">APROBACIÓN</span>
+                    </h2>
+                    <blockquote class="text-xl text-gray-300 font-light leading-relaxed italic">
+                        "En <span class="font-bold text-white">PRAX</span>, nos aseguramos de que cada estructura y cada espacio esté perfectamente diseñado bajo los más altos estándares de eficiencia. Por eso, apoyamos con orgullo a <span class="text-gradient-prax font-bold">Gallos Racing</span>; porque en la pista, al igual que en la arquitectura, la precisión lo es todo."
+                    </blockquote>
+                    <p class="mt-8 text-sm font-mono text-cyan-500/80 uppercase tracking-widest">
+                        — Arq. Rafael Herrera García | Director General
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+            <div class="text-center p-4">
+                <span class="block text-2xl font-bold text-white font-orbitron">100%</span>
+                <span class="text-[10px] text-gray-500 uppercase">Precisión Técnica</span>
+            </div>
+            <div class="text-center p-4">
+                <span class="block text-2xl font-bold text-white font-orbitron">CDMX</span>
+                <span class="text-[10px] text-gray-500 uppercase">Base de Operaciones</span>
+            </div>
+            <div class="text-center p-4">
+                <span class="block text-2xl font-bold text-white font-orbitron">PRAX</span>
+                <span class="text-[10px] text-gray-500 uppercase">Ingeniería Líder</span>
+            </div>
+            <div class="text-center p-4">
+                <span class="block text-2xl font-bold text-white font-orbitron">GALLOS</span>
+                <span class="text-[10px] text-gray-500 uppercase">Velocidad Pura</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-card rounded-[3rem] p-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-prax-gradient opacity-10 blur-[80px]"></div>
+                
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="font-orbitron text-3xl font-black mb-2 uppercase">Rafael Herrera García</h3>
+                        <p class="text-cyan-400 font-mono text-sm tracking-widest mb-8">DIRECTOR GENERAL</p>
+                        
+                        <div class="space-y-4 text-sm font-light">
+                            <p class="flex items-center gap-3 text-gray-300">
+                                <i class="fas fa-map-marker-alt text-pink-500 w-5"></i>
+                                Callejon de la estación No. 15, Col. Barranca Seca, CDMX
+                            </p>
+                            <p class="flex items-center gap-3 text-gray-300">
+                                <i class="fas fa-phone text-cyan-500 w-5"></i>
+                                Cel: 55 2209 9653 | Ofi: 5 6526 2237
+                            </p>
+                            <p class="flex items-center gap-3 text-gray-300">
+                                <i class="fas fa-envelope text-orange-500 w-5"></i>
+                                rafaelherrera@gmail.com
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-4">
+                        <a href="https://ingenieria-y-arquitectura-prax-s-a--de-cv.webnode.mx" target="_blank" class="bg-prax-gradient p-[2px] rounded-full group">
+                            <div class="bg-[#03030a] group-hover:bg-transparent transition-all py-4 px-8 rounded-full text-center font-orbitron text-xs font-bold">
+                                VISITAR SITIO WEB
+                            </div>
+                        </a>
+                        <div class="text-center">
+                            <p class="text-[10px] text-gray-500 font-mono italic">"Innovación en cada metro cuadrado"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center">
+        <div class="h-[1px] w-40 bg-gray-800 mx-auto mb-8"></div>
+        <p class="text-[10px] font-orbitron text-gray-600 tracking-[0.4em] uppercase">Alianza Estratégica 2026 | Escudería F1 in Schools</p>
+    </footer>
+
+</body>
+</html>

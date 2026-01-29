@@ -34,12 +34,14 @@
             background: rgba(249, 115, 22, 0.05);
         }
 
-        .hero-rexcue {
-            background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.95)), 
-                        url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-        }
+      .hero-rexcue {
+    /* El degradado va primero, luego la imagen */
+    background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.95)), 
+                url('static/img/rexcue/Andamios_rexcue.JPG'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Esto le da un toque premium al hacer scroll */
+}
 
         .btn-orange {
             background-color: var(--rescue-orange);
@@ -138,7 +140,7 @@
                 </div>
                 <div class="bg-zinc-900 relative min-h-[300px]">
                     <div class="absolute inset-0 bg-orange-900/10 mix-blend-overlay"></div>
-                    <img src="https://images.unsplash.com/photo-1582213726839-ed483f9408f9?auto=format&fit=crop&w=800&q=80" alt="Rescate Profesional" class="w-full h-full object-cover opacity-60">
+                    <img src="static/img/rexcue/Radio.JPG" alt="Rescate Profesional" class="w-full h-full object-cover opacity-60">
                 </div>
             </div>
         </div>

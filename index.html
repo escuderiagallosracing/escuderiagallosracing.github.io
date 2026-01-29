@@ -109,8 +109,58 @@
         .img-zoom:hover {
             transform: scale(1.05);
         }
+
+        /* 1. Cursor Personalizado (Efecto de rastro) */
+
+
+/* 2. Botones con Brillo Neón */
+.btn-gallos {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.btn-gallos:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 40px rgba(168, 85, 247, 0.4);
+    transform: scale(1.05);
+}
+
+/* 3. Animación de Entrada para el texto */
+.revelar-texto {
+    animation: RevealText 1s ease forwards;
+}
+
+@keyframes RevealText {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 4. Efecto de Tarjeta Flotante */
+.glass-card {
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.glass-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-10px);
+}
+
+.mouse-trail {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(to right, #3b82f6, #a855f7); /* Azul a Morado */
+    border-radius: min-content;
+    pointer-events: none; /* Para que no interfiera con los clics */
+    z-index: 9999;
+    border-radius: 50%;
+    animation: fadeOut 0.5s linear forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.2); }
+}
     </style>
 </head>
+
 <body>
 
     <div id="progress-bar"></div>
@@ -259,6 +309,27 @@
         </div>
     </section>
 
+    <section class="py-24 bg-black">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="font-orbitron text-2xl font-bold mb-12 uppercase tracking-widest border-l-4 border-purple-600 pl-4">Galería de <span class="text-blue-500">Desarrollo</span></h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="relative overflow-hidden rounded-2xl group h-64">
+                <img src="static/img/F1_coche jimena5.png" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:rotate-2">
+                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                    <p class="text-white font-orbitron text-xs">RENDER FINAL - AERODINÁMICA</p>
+                </div>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl group h-64 md:col-span-2">
+                <img src="static/img/rexcue/Andamios_rexcue.JPG" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                    <p class="text-white font-orbitron text-xs">INFRAESTRUCTURA DE SOPORTE - ALIANZA REXCUE</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Engineering Section -->
     <section id="ingenieria" class="py-32 bg-[#050505] overflow-hidden">
         <div class="max-w-7xl mx-auto px-4">
@@ -294,6 +365,62 @@
         </div>
     </section>
 
+    <section class="py-24 bg-[#03030a] relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-4xl font-orbitron font-black text-center mb-16 italic text-white">
+            NUESTRO <span class="text-gradient-prax">CAMINO</span>
+        </h2>
+        
+        <div class="relative border-l-2 border-blue-500/30 ml-4 md:mx-auto md:w-0">
+            <div class="mb-12 md:relative">
+                <div class="md:absolute md:left-[-160px] md:w-32 text-right hidden md:block">
+                    <span class="text-blue-400 font-orbitron font-bold">OCT 2025</span>
+                </div>
+                <div class="absolute left-[-9px] top-0 w-4 h-4 bg-blue-500 rounded-full shadow-[0_0_15px_#3b82f6]"></div>
+                <div class="ml-8 md:ml-12 glass-card p-6 rounded-2xl md:w-80">
+                    <h3 class="font-orbitron text-sm font-bold text-white">FORMACIÓN DEL EQUIPO</h3>
+                    <p class="text-xs text-gray-500 mt-2">Nace Gallos Racing con una visión: llevar la ingeniería mexicana a lo más alto.</p>
+                </div>
+            </div>
+
+            <div class="mb-12 md:relative">
+                <div class="md:absolute md:right-[-160px] md:w-32 text-left hidden md:block">
+                    <span class="text-purple-400 font-orbitron font-bold">DIC 2025</span>
+                </div>
+                <div class="absolute left-[-9px] top-0 w-4 h-4 bg-purple-500 rounded-full shadow-[0_0_15px_#a855f7]"></div>
+                <div class="ml-8 md:ml-[-360px] glass-card p-6 rounded-2xl md:w-80">
+                    <h3 class="font-orbitron text-sm font-bold text-white">ANÁLISIS CFD V1.0</h3>
+                    <p class="text-xs text-gray-500 mt-2">Primeras simulaciones en Autodesk. Identificamos los 131 boundaries críticos.</p>
+                </div>
+            </div>
+
+            <div class="mb-12 md:relative">
+                <div class="md:absolute md:left-[-160px] md:w-32 text-right hidden md:block">
+                    <span class="text-cyan-400 font-orbitron font-bold">ENE 2026</span>
+                </div>
+                <div class="absolute left-[-9px] top-0 w-4 h-4 bg-cyan-400 rounded-full shadow-[0_0_15px_#22d3ee]"></div>
+                <div class="ml-8 md:ml-12 glass-card p-6 rounded-2xl md:w-80 border-cyan-500/30">
+                    <h3 class="font-orbitron text-sm font-bold text-white">ALIANZA PRAX & HYDROCELL</h3>
+                    <p class="text-xs text-gray-500 mt-2">Sincronización de ingeniería y arquitectura para optimizar el stand y el chasis.</p>
+                </div>
+            </div>
+
+           <!-- <div class="mb-12 md:relative">
+                <div class="md:absolute md:right-[-160px] md:w-32 text-left hidden md:block">
+                    <span class="text-purple-400 font-orbitron font-bold">FEB 2026</span>
+                </div>
+                <div class="absolute left-[-9px] top-0 w-4 h-4 bg-purple-500 rounded-full shadow-[0_0_15px_#a855f7]"></div>
+                <div class="ml-8 md:ml-[-360px] glass-card p-6 rounded-2xl md:w-80">
+                    <h3 class="font-orbitron text-sm font-bold text-white">Maquinado de nuestro coche</h3>
+                    <p class="text-xs text-gray-500 mt-2">Acudimos a la univerisidad UTT quien nos apoyo en el maquinado cnc.</p>
+                </div>
+            </div>-->
+
+        </div>
+    </div>
+</section>
+
+
 
 
     
@@ -312,7 +439,7 @@
         <img src="static/img/WhatsApp Image 2026-01-07 at 10.59.46 AM.jpeg" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
     </a>
 
-    <a href="https://paginadelpatrocinador.com" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
+    <a href="prax.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
         <img src="static/img/Logo_prax_recurso1.png" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
     </a>
     
@@ -321,6 +448,22 @@
     </a>
     
     <div class="w-full aspect-video glass-card flex items-center justify-center rounded-2xl reveal border-dashed" style="transition-delay: 0.3s">
+        <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo Aquí</span>
+    </div>
+
+     <div class="w-full aspect-video glass-card flex items-center justify-center rounded-2xl reveal border-dashed" style="transition-delay: 0.3s">
+        <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo Aquí</span>
+    </div>
+
+     <div class="w-full aspect-video glass-card flex items-center justify-center rounded-2xl reveal border-dashed" style="transition-delay: 0.3s">
+        <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo Aquí</span>
+    </div>
+
+     <div class="w-full aspect-video glass-card flex items-center justify-center rounded-2xl reveal border-dashed" style="transition-delay: 0.3s">
+        <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo Aquí</span>
+    </div>
+
+     <div class="w-full aspect-video glass-card flex items-center justify-center rounded-2xl reveal border-dashed" style="transition-delay: 0.3s">
         <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo Aquí</span>
     </div>
 </div>
@@ -438,6 +581,23 @@
                 }
             });
         });
+
+       document.addEventListener('mousemove', (e) => {
+        const rastro = document.createElement('div');
+        rastro.className = 'mouse-trail';
+        
+        // Ajustamos la posición para que salga del centro del puntero
+        rastro.style.left = (e.pageX - 4) + 'px';
+        rastro.style.top = (e.pageY - 4) + 'px';
+        
+        document.body.appendChild(rastro);
+        
+        // Borramos el elemento después de medio segundo para no saturar la memoria
+        setTimeout(() => {
+            rastro.remove();
+        }, 500);
+    });
     </script>
+    
 </body>
 </html>

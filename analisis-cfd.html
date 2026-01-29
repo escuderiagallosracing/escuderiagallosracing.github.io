@@ -135,6 +135,66 @@
     </div>
 </section>
 
+<div class="glass-card p-10 rounded-[2.5rem] border border-white/5 bg-slate-950/50 relative overflow-hidden group">
+    
+    <div class="absolute left-6 top-10 bottom-20 flex flex-col justify-between text-[10px] font-mono text-blue-400/50 z-10">
+        <span>0.00N</span>
+        <span>-0.05N</span>
+        <span class="text-purple-400 font-bold">-0.115N</span>
+    </div>
+
+    <div class="relative h-64 w-full mt-4 ml-8 border-l border-b border-white/10">
+        
+        <svg viewBox="0 0 1000 200" class="w-full h-full preserve-3d">
+            <line x1="0" y1="180" x2="1000" y2="180" stroke="white" stroke-dasharray="5,5" opacity="0.1" />
+            
+            <path d="M0,20 Q100,25 200,60 T400,120 T600,160 T800,178 L1000,180" 
+                  fill="none" 
+                  stroke="url(#gradientLinea)" 
+                  stroke-width="4" 
+                  class="linea-path" />
+            
+            <defs>
+                <linearGradient id="gradientLinea" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#3b82f6" />
+                    <stop offset="100%" stop-color="#a855f7" />
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <div class="absolute right-0 bottom-[10%] w-4 h-4 bg-purple-500 rounded-full shadow-[0_0_15px_#a855f7] animate-pulse"></div>
+    </div>
+
+    <div class="flex justify-between mt-6 ml-8 text-[10px] font-mono text-gray-500 uppercase tracking-widest">
+        <span>Iteración 1</span>
+        <span>Convergencia Final (B131)</span>
+    </div>
+</div>
+
+<style>
+/* Estilo para animar la línea como si se estuviera dibujando */
+.linea-path {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: dibujarLinea 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes dibujarLinea {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Efecto de resplandor al pasar el mouse */
+.glass-card:hover .linea-path {
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6));
+    stroke-width: 5;
+    transition: all 0.5s ease;
+}
+</style>
+
+
+
         <div class="glass-card rounded-[3rem] overflow-hidden mb-20">
             <div class="p-10 border-b border-white/10">
                 <h2 class="text-2xl font-orbitron font-bold">TÚNEL DE VIENTO VIRTUAL</h2>
