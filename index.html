@@ -4,12 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallos Racing | F1 in Schools Team</title>
-    
-    <link rel="stylesheet" href=".static/css/style.css">
-    
+    <link rel="icon" type="image/png" href="static/img/LOGO.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="static/img/LOGO.png">
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --primary: #2d2e6f;
+    --primary-light: #2d2e6f; 
+    --secondary: #3B82F6; 
+    --accent: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.font-orbitron { font-family: 'Orbitron', sans-serif; }
+
+/* Barra de progreso */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s;
+}
+
+.hero-gradient {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Tarjetas y Botones */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-10px);
+    border-color: var(--secondary);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-gradient {
+    background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #2d2e6f, #3B82F6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Efectos Especiales */
+.mouse-trail {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(to right, #3b82f6, #a855f7);
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    animation: fadeOut 0.5s linear forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.2); }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.parallax-car {
+    transition: transform 0.2s ease-out;
+}
+    </style>
 </head>
 
 <body>
@@ -374,8 +467,95 @@
         </div>
     </footer>
 
-   <script src=".static/js/main.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Barra de progreso y Revelación de elementos
+        window.addEventListener('scroll', () => {
+            // Barra de progreso
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+
+            // Reveal
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const revealTop = el.getBoundingClientRect().top;
+                const revealPoint = 100;
+                if (revealTop < windowHeight - revealPoint) {
+                    el.classList.add('active');
+                }
+            });
+        });
+
+        // Forzar primera revisión de reveal
+        window.dispatchEvent(new Event('scroll'));
+
+        // Contador de tiempo
+        const countdownDate = new Date("March 9, 2026 00:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<span class='text-gradient text-3xl font-bold'>¡DÍA DE CARRERA!</span>";
+            }
+        }, 1000);
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+       document.addEventListener('mousemove', (e) => {
+        const rastro = document.createElement('div');
+        rastro.className = 'mouse-trail';
+        
+        // Ajustamos la posición para que salga del centro del puntero
+        rastro.style.left = (e.pageX - 4) + 'px';
+        rastro.style.top = (e.pageY - 4) + 'px';
+        
+        document.body.appendChild(rastro);
+        
+        // Borramos el elemento después de medio segundo para no saturar la memoria
+        setTimeout(() => {
+            rastro.remove();
+        }, 500);
+    });
+
+    window.addEventListener('scroll', () => {
+    const car = document.querySelector('.parallax-car');
+    if(car) {
+        let scrollValue = window.scrollY;
+        car.style.transform = `translateY(${scrollValue * 0.15}px) rotate(${scrollValue * 0.01}deg)`;
+    }
+});
+    </script>
     
 </body>
-
 </html>
