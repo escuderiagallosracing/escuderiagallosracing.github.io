@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --primary: #2d2e6f;
+    --primary-light: #2d2e6f; 
+    --secondary: #3B82F6; 
+    --accent: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.font-orbitron { font-family: 'Orbitron', sans-serif; }
+
+/* Barra de progreso */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s;
+}
+
+.hero-gradient {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Tarjetas y Botones */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-10px);
+    border-color: var(--secondary);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-gradient {
+    background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #2d2e6f, #3B82F6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Efectos Especiales */
+.mouse-trail {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(to right, #3b82f6, #a855f7);
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    animation: fadeOut 0.5s linear forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.2); }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.parallax-car {
+    transition: transform 0.2s ease-out;
+}
