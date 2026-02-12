@@ -25,7 +25,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Contador
-const countdownDate = new Date("March 9, 2026 00:00:00").getTime();
+const countdownDate = new Date("March 26, 2026 00:00:00").getTime();
 setInterval(() => {
     const now = new Date().getTime();
     const distance = countdownDate - now;
@@ -51,4 +51,5 @@ document.addEventListener('mousemove', (e) => {
     rastro.style.top = (e.pageY - 4) + 'px';
     document.body.appendChild(rastro);
     setTimeout(() => rastro.remove(), 500);
+
 });
