@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OUM | Soluciones Automotrices</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --oum-rojo: #ff0000;
+    --oum-negro: #0a0a0a;
+    --oum-gris: #aaaaaa;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #050505;
+    color: white;
+}
+
+.font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.bg-oum-gradient {
+    background: linear-gradient(135deg, #ff0000, #800000);
+}
+
+.glass-card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.4s;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(255,0,0,0.2);
+}
+
+.hero {
+    min-height: 90vh;
+    background: linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,1)),
+    url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #ff0000, #aaaaaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="fixed w-full bg-black/80 backdrop-blur-md z-50 border-b border-red-500/20">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+        <h1 class="font-orbitron font-black text-xl tracking-widest">
+            OUM
+        </h1>
+        <a href="index.html" class="text-xs text-gray-400 hover:text-red-500 uppercase tracking-widest">
+            Regresar a gallos racing
+        </a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero flex items-center justify-center text-center px-6">
+    <div class="max-w-4xl">
+
+        <img src="static/img/saluciones.png" alt="OUM Soluciones Automotrices" class="mx-auto w-64 mb-6">
+
+        <h1 class="text-5xl md:text-7xl font-orbitron font-black mb-4">
+            OUM
+        </h1>
+
+        <p class="text-gradient text-xl md:text-2xl mb-6">
+            Soluciones Automotrices de Alto Rendimiento
+        </p>
+
+        <p class="text-gray-300 max-w-xl mx-auto">
+            Especialistas en diagnóstico, mantenimiento y optimización de vehículos. Tecnología, precisión y confianza en cada servicio.
+        </p>
+    </div>
+</header>
+
+<!-- SERVICIOS -->
+<section class="py-24 px-6">
+<div class="max-w-6xl mx-auto">
+
+<h2 class="text-4xl font-orbitron text-center mb-16">
+    NUESTROS <span class="text-red-500">SERVICIOS</span>
+</h2>
+
+<div class="grid md:grid-cols-3 gap-10">
+
+<div class="glass-card p-8 rounded-2xl text-center">
+    <i class="fas fa-car text-3xl text-red-500 mb-4"></i>
+    <h3 class="font-bold mb-2">Diagnóstico Automotriz</h3>
+    <p class="text-gray-400 text-sm">
+        Análisis completo del vehículo con herramientas especializadas.
+    </p>
+</div>
+
+<div class="glass-card p-8 rounded-2xl text-center">
+    <i class="fas fa-cogs text-3xl text-gray-300 mb-4"></i>
+    <h3 class="font-bold mb-2">Mantenimiento</h3>
+    <p class="text-gray-400 text-sm">
+        Servicios preventivos y correctivos para máximo rendimiento.
+    </p>
+</div>
+
+<div class="glass-card p-8 rounded-2xl text-center">
+    <i class="fas fa-tachometer-alt text-3xl text-red-400 mb-4"></i>
+    <h3 class="font-bold mb-2">Optimización</h3>
+    <p class="text-gray-400 text-sm">
+        Mejora del desempeño y eficiencia del vehículo.
+    </p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- SECCIÓN DESTACADA -->
+<section class="py-20 px-6 bg-[#050505]">
+<div class="max-w-5xl mx-auto">
+
+<div class="glass-card p-12 rounded-3xl text-center border-t-4 border-red-500">
+
+<h2 class="text-3xl font-orbitron mb-6">
+    PRECISIÓN Y <span class="text-red-500">POTENCIA</span>
+</h2>
+
+<p class="text-gray-300 mb-6">
+    En OUM combinamos tecnología y experiencia para ofrecer soluciones confiables que mantienen tu vehículo en condiciones óptimas.
+</p>
+
+<p class="text-gray-400 text-sm italic">
+    "Rendimiento que se siente en cada kilómetro"
+</p>
+
+</div>
+
+</div>
+</section>
+
+<!-- CONTACTO -->
+<section class="py-24 px-6">
+<div class="max-w-4xl mx-auto">
+
+<div class="glass-card p-12 rounded-3xl text-center">
+
+<h3 class="text-3xl font-orbitron mb-4">
+    CONTÁCTANOS
+</h3>
+
+<p class="text-gray-400 mb-8">
+    Agenda tu servicio o solicita información
+</p>
+
+<div class="flex justify-center gap-6 text-xl">
+
+<a href="#" class="hover:text-red-500">
+    <i class="fab fa-facebook"></i>
+</a>
+
+<a href="#" class="hover:text-green-400">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center text-gray-600 text-xs">
+    OUM Soluciones Automotrices | Tehuacán, Puebla
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIMATH | Ingeniería de Precisión</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --simath-primary: #ffffff;
+    --simath-accent: #9ca3af;
+    --simath-dark: #020202;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #000;
+    color: white;
+    overflow-x: hidden;
+}
+
+.font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* GRID INDUSTRIAL */
+.grid-bg {
+    background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* GLOW */
+.glow {
+    box-shadow: 0 0 40px rgba(255,255,255,0.1);
+}
+
+/* TARJETAS */
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 50px rgba(255,255,255,0.15);
+}
+
+/* HERO */
+.hero {
+    min-height: 95vh;
+    background: linear-gradient(rgba(0,0,0,0.8), black),
+    url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* TEXTO */
+.text-gradient {
+    background: linear-gradient(to right, #fff, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+</style>
+</head>
+
+<body class="grid-bg">
+
+<!-- NAV -->
+<nav class="fixed w-full bg-black/80 backdrop-blur-md z-50 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+        <h1 class="font-orbitron font-black text-xl tracking-widest">SIMATH</h1>
+        <a href="index.html" class="text-xs text-gray-400 hover:text-white uppercase tracking-widest">
+            Regresar a Gallos racing
+        </a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero flex items-center justify-center text-center px-6">
+<div class="max-w-5xl">
+
+<img src="static/img/simath.png" class="mx-auto w-64 mb-8 glow">
+
+<h1 class="text-6xl md:text-8xl font-orbitron font-black mb-4">
+SIMATH
+</h1>
+
+<p class="text-gradient text-xl md:text-2xl mb-6">
+Precisión Industrial para Alto Rendimiento
+</p>
+
+<p class="text-gray-300 max-w-2xl mx-auto">
+Aliado clave en la manufactura de nuestro vehículo de competencia, aportando tecnología CNC, maquinado de precisión y experiencia en ingeniería aplicada.
+</p>
+
+</div>
+</header>
+
+<!-- SECCIÓN F1 -->
+<section class="py-24 px-6">
+<div class="max-w-6xl mx-auto text-center">
+
+<h2 class="text-4xl font-orbitron mb-10">
+ALIADO EN <span class="text-white">COMPETENCIA</span>
+</h2>
+
+<p class="text-gray-400 max-w-3xl mx-auto mb-12">
+SIMATH participó directamente en la fabricación de componentes clave de nuestro coche F1 in Schools, garantizando precisión milimétrica y calidad profesional en cada pieza.
+</p>
+
+<div class="grid md:grid-cols-3 gap-10">
+
+<div class="card p-8 rounded-2xl">
+<i class="fas fa-cogs text-3xl mb-4"></i>
+<h3 class="font-bold">Maquinado CNC</h3>
+<p class="text-gray-400 text-sm">Alta precisión en piezas críticas.</p>
+</div>
+
+<div class="card p-8 rounded-2xl">
+<i class="fas fa-drafting-compass text-3xl mb-4"></i>
+<h3 class="font-bold">Diseño CAD</h3>
+<p class="text-gray-400 text-sm">Optimización de geometría y rendimiento.</p>
+</div>
+
+<div class="card p-8 rounded-2xl">
+<i class="fas fa-microchip text-3xl mb-4"></i>
+<h3 class="font-bold">Ingeniería Aplicada</h3>
+<p class="text-gray-400 text-sm">Soluciones reales para competencia.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="py-24 px-6">
+<div class="max-w-6xl mx-auto">
+
+<h2 class="text-4xl font-orbitron text-center mb-16">
+CAPACIDADES <span class="text-gray-400">TÉCNICAS</span>
+</h2>
+
+<div class="grid md:grid-cols-2 gap-10">
+
+<div class="card p-8 rounded-2xl">
+<h3 class="font-bold mb-2">Maquinado de precisión</h3>
+<p class="text-gray-400 text-sm">Fabricación de piezas industriales con tolerancias exactas.</p>
+</div>
+
+<div class="card p-8 rounded-2xl">
+<h3 class="font-bold mb-2">Corte CNC y plasma</h3>
+<p class="text-gray-400 text-sm">Procesos avanzados para materiales metálicos.</p>
+</div>
+
+<div class="card p-8 rounded-2xl">
+<h3 class="font-bold mb-2">Soldadura especializada</h3>
+<p class="text-gray-400 text-sm">Procesos MIG, TIG y MMAW.</p>
+</div>
+
+<div class="card p-8 rounded-2xl">
+<h3 class="font-bold mb-2">Diseño mecánico</h3>
+<p class="text-gray-400 text-sm">Modelado y desarrollo en software CAD.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- CONTACTO -->
+<section class="py-24 px-6">
+<div class="max-w-4xl mx-auto">
+
+<div class="card p-12 rounded-3xl text-center">
+
+<h3 class="text-3xl font-orbitron mb-4">
+CONTACTO
+</h3>
+
+<p class="text-gray-400 mb-6">
+San Lorenzo Teotipilco, Tehuacán Puebla  
+Priv. Venustiano Carranza #26
+</p>
+
+<p class="text-gray-300 mb-6">
+Tel: 222 505 3650
+</p>
+
+<div class="flex justify-center gap-6 text-xl">
+
+<a href="https://www.facebook.com/p/Soluciones-en-Ingenieria-y-Manufactura-de-Tehuacan-Simath-100063647842240/" target="_blank">
+<i class="fab fa-facebook"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center text-gray-600 text-xs">
+SIMATH | Ingeniería y Manufactura de Tehuacán
+</footer>
+
+</body>
+</html>
