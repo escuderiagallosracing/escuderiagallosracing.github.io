@@ -40,7 +40,7 @@ body {
 }
 
 .hero-gradient {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('static/img/FONDO1.JPEG');
     background-size: cover;
     background-position: center;
 }
@@ -102,6 +102,62 @@ body {
 .parallax-car {
     transition: transform 0.2s ease-out;
 }
+
+/* Banda inclinada */
+/* CONTENEDOR INCLINADO */
+.marquee-wrapper {
+    transform: rotate(-3deg);
+    overflow: hidden;
+    position: relative;
+}
+
+/* FONDO TIPO BARRA F1 */
+.marquee-track {
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+    padding: 1rem 0;
+    box-shadow: 0 10px 40px rgba(59,130,246,0.3);
+}
+
+/* CONTENIDO */
+.marquee-content {
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+    animation: scrollLoop 12s linear infinite;
+}
+
+/* TEXTO */
+.marquee-content span {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: white;
+}
+
+/* ANIMACIÓN */
+@keyframes scrollLoop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-track::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
     </style>
 </head>
 
@@ -188,6 +244,181 @@ body {
         </div>
     </section>
 
+    
+<!-- MISIÓN & VISIÓN -->
+<section id="mision" class="py-32 bg-[#050505] relative overflow-hidden">
+
+    <!-- Fondo decorativo -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#3B82F6_0%,_transparent_70%)]"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Título -->
+        <div class="text-center mb-20 reveal">
+            <h2 class="text-4xl md:text-5xl font-orbitron font-bold">
+                NUESTRA <span class="text-gradient">ESENCIA</span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-500 mx-auto mt-6"></div>
+            <p class="text-gray-500 mt-6 uppercase tracking-[0.3em] text-xs font-semibold">
+                Filosofía del equipo
+            </p>
+        </div>
+
+        <!-- Contenido -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            <!-- MISIÓN -->
+            <div class="glass-card p-10 rounded-3xl border border-indigo-500/20 reveal group">
+                <div class="mb-6">
+                    <i class="fas fa-bullseye text-3xl text-indigo-400"></i>
+                </div>
+
+                <h3 class="text-2xl font-orbitron font-bold mb-4 text-white">
+                    MISIÓN
+                </h3>
+
+                <p class="text-gray-400 leading-relaxed text-sm">
+                    Potenciar el talento joven mediante la integración de 
+                    <span class="text-white font-semibold">ingeniería, diseño y gestión estratégica</span>, 
+                    aplicando metodologías 
+                    <span class="text-blue-400 font-bold">STEM</span> para desarrollar el monoplaza 
+                    más eficiente de la competencia.
+                </p>
+            </div>
+
+            <!-- VISIÓN -->
+            <div class="glass-card p-10 rounded-3xl border border-blue-500/20 reveal group" style="transition-delay: 0.2s">
+                <div class="mb-6">
+                    <i class="fas fa-eye text-3xl text-blue-400"></i>
+                </div>
+
+                <h3 class="text-2xl font-orbitron font-bold mb-4 text-white">
+                    VISIÓN
+                </h3>
+
+                <p class="text-gray-400 leading-relaxed text-sm">
+                    Aspiramos a dejar un 
+                    <span class="text-white font-semibold">legado de excelencia académica y profesional</span> 
+                    que inspire a nuevas generaciones de estudiantes a conquistar las pistas 
+                    internacionales de 
+                    <span class="text-blue-400 font-bold">F1 in Schools</span>.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ESLOGAN -->
+        <div class="mt-24 text-center reveal">
+
+            <div class="inline-block relative">
+
+                <!-- Glow -->
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-blue-500 rounded-2xl blur opacity-30"></div>
+
+                <div class="relative glass-card px-10 py-8 rounded-2xl border border-white/10">
+
+                    <p class="text-gray-400 uppercase tracking-[0.3em] text-xs mb-4">
+                        Nuestro lema
+                    </p>
+
+                    <h3 class="text-xl md:text-2xl font-orbitron font-bold italic text-white">
+                        "La perfección no es una opción, es un estándar"
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+    
+
+    <!-- segundo lugar -->
+<section id="logro" class="py-32 bg-black relative overflow-hidden">
+
+    <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+    <div class="w-full h-full bg-[linear-gradient(120deg,transparent_40%,#3B82F6_50%,transparent_60%)] animate-pulse"></div>
+</div>
+
+    <!-- Fondo decorativo -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#3B82F6_0%,_transparent_70%)]"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Título -->
+        <div class="text-center mb-20 reveal">
+            <h2 class="text-4xl md:text-5xl font-orbitron font-bold">
+                NUESTRO <span class="text-gradient">LOGRO</span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-500 mx-auto mt-6"></div>
+            <p class="text-gray-500 mt-6 uppercase tracking-[0.3em] text-xs font-semibold">
+                Competencia Nacional DGTI BP
+            </p>
+        </div>
+
+        <!-- Contenido -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            <!-- TEXTO -->
+            <div class="reveal">
+                <h3 class="text-3xl md:text-4xl font-orbitron font-bold mb-6">
+                    🥈 SEGUNDO LUGAR NACIONAL
+                </h3>
+
+                <p class="text-gray-400 leading-relaxed mb-6">
+                     Gallos Racing obtuvo el <span class="text-blue-400 font-bold">segundo lugar</span> en la competencia nacional 
+                    <span class="text-white font-semibold">DGTI BP</span>, destacando en áreas clave como 
+                    <span class="text-white">ingeniería, diseño y trabajo en equipo</span>.
+    
+                    Además, fuimos galardonados con el premio especial en 
+                    <span class="text-blue-400 font-bold">presentación verbal</span>, reflejando nuestra capacidad para comunicar 
+                    de manera efectiva <span class="text-white font-semibold">nuestra visión, misión y valores</span> en un entorno competitivo.
+                </p>
+
+                <p class="text-gray-500 leading-relaxed mb-8">
+                    Este logro refleja nuestro compromiso con la innovación, la excelencia técnica y el desarrollo 
+                    de soluciones dentro del programa F1 in Schools.
+                </p>
+
+                <!-- Stats -->
+                <div class="flex gap-8">
+                    <div>
+                        <p class="text-3xl font-orbitron text-blue-400">#2</p>
+                        <p class="text-xs uppercase text-gray-500 tracking-widest">Posición</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-orbitron text-indigo-400">Nacional</p>
+                        <p class="text-xs uppercase text-gray-500 tracking-widest">Nivel</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IMAGEN TROFEO -->
+            <div class="reveal flex justify-center" style="transition-delay: 0.2s">
+
+                <div class="relative group">
+
+                    <!-- Glow -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-blue-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+
+                    <!-- Imagen -->
+                    <div class="relative bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-4">
+                        <img src="static/img/trofeo.jpeg" 
+                             alt="Trofeo Segundo Lugar" 
+                             class="rounded-xl object-cover w-[300px] md:w-[400px]">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
     <!-- Team Section -->
     <section id="equipo" class="py-32 bg-black relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -256,43 +487,122 @@ body {
     </section>
 
 
+<section class="relative py-24 bg-black overflow-hidden">
 
-    <!-- Engineering Section -->
-    <section id="ingenieria" class="py-32 bg-[#050505] overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                <div class="relative reveal">
-                    <div class="absolute -top-10 -left-10 w-64 h-64 bg-indigo-600/10 rounded-full blur-[100px]"></div>
-                    <div class="relative z-10 p-4 bg-white/5 rounded-[2.5rem] border border-white/10 group overflow-hidden shadow-2xl">
-                        <img src="static/img/F1_coche jimena5.png" alt="Coche GR-V1" class="rounded-[2rem] w-full img-zoom object-cover">
-                    </div>
-                </div>
-                <div class="reveal" style="transition-delay: 0.3s">
-                    <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-8 italic leading-tight">TECNOLOGÍA <span class="text-gradient underline decoration-blue-500/30">GR-V3</span></h2>
-                    <p class="text-gray-400 mb-10 leading-relaxed text-lg font-light italic">
-                        "La aerodinámica es el arte de esculpir el viento. Con el GR-V3 hemos logrado reducir el drag en un 15% manteniendo la estabilidad en rectas manteniendo la alta velocidad."
-                        <br><br>
-                        — <span class="text-white font-bold tracking-widest uppercase text-sm">Jimena Monterrosa</span>
-                    </p>
-                   <div class="grid grid-cols-2 gap-6">
-                        <a href="analisis-cfd.html" class="block p-8 glass-card rounded-3xl hover:border-indigo-500 transition-all">
-                        <i class="fas fa-wind text-indigo-400 text-3xl mb-4"></i>
-                        <h4 class="font-bold text-xs uppercase tracking-widest text-indigo-400">Análisis CFD</h4>
-                        <p class="text-[10px] text-gray-500 mt-2">Simulación de fluidos de alta precisión.</p>
-                        </a>
+    <!-- CONTENEDOR INCLINADO -->
+    <div class="marquee-wrapper">
+        <div class="marquee-track">
+            <div class="marquee-content">
 
-                        <a href="manufactura-cnc.html" class="block p-8 glass-card rounded-3xl hover:border-blue-500 transition-all">
-                        <i class="fas fa-microchip text-blue-400 text-3xl mb-4"></i>
-                        <h4 class="font-bold text-xs uppercase tracking-widest text-blue-400">Manufactura CNC</h4>
-                        <p   p class="text-[10px] text-gray-500 mt-2">Precisión milimétrica en cada pieza.</p>
-                        </a>
-                    </div>
-                </div>
+                <!-- CONTENIDO -->
+                <span>MATEMÁTICAS</span>
+                <span>///</span>
+                <span>CIENCIA</span>
+                <span>///</span>
+                <span>TECNOLOGÍA</span>
+                <span>///</span>
+                <span>INGENIERÍA</span>
+                <span>///</span>
+
+                <!-- DUPLICADO -->
+                <span>MATEMÁTICAS</span>
+                <span>///</span>
+                <span>CIENCIA</span>
+                <span>///</span>
+                <span>TECNOLOGÍA</span>
+                <span>///</span>
+                <span>INGENIERÍA</span>
+                <span>///</span>
+
             </div>
         </div>
+    </div>
 
-        
-    </section>
+</section>
+
+
+
+<!-- Engineering Section -->
+<section id="ingenieria" class="py-32 bg-[#050505] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+
+            <!-- IMAGEN -->
+            <div class="relative reveal">
+                <div class="absolute -top-10 -left-10 w-64 h-64 bg-indigo-600/10 rounded-full blur-[100px]"></div>
+                <div class="relative z-10 p-4 bg-white/5 rounded-[2.5rem] border border-white/10 group overflow-hidden shadow-2xl">
+                    <img src="static/img/F1_coche jimena5.png" alt="Coche GR-V3" class="rounded-[2rem] w-full object-cover">
+                </div>
+            </div>
+
+            <!-- CONTENIDO -->
+            <div class="reveal" style="transition-delay: 0.3s">
+
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-8 italic leading-tight">
+                    TECNOLOGÍA <span class="text-gradient underline decoration-blue-500/30">GR-V3</span>
+                </h2>
+
+                <!-- DESCRIPCIÓN MEJORADA -->
+                <p class="text-gray-400 mb-8 leading-relaxed text-lg font-light">
+                    El modelo <span class="text-white font-semibold">GR-V3</span> fue desarrollado bajo principios avanzados de 
+                    <span class="text-white">aerodinámica, manufactura de precisión y optimización estructural</span>.
+                    
+                    Su diseño fue <span class="text-blue-400 font-semibold">nominado en las categorías de diseño e ingeniería</span>, 
+                    destacando por su eficiencia, estabilidad y rendimiento en pista.
+                </p>
+
+                <!-- MÉTRICAS (CLAVE) -->
+                <div class="grid grid-cols-3 gap-6 mb-10">
+
+                    <div class="glass-card p-4 rounded-xl text-center">
+                        <p class="text-2xl font-orbitron text-blue-400">62g</p>
+                        <p class="text-[10px] uppercase text-gray-500 tracking-widest">Peso</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl text-center">
+                        <p class="text-2xl font-orbitron text-indigo-400">1.37s</p>
+                        <p class="text-[10px] uppercase text-gray-500 tracking-widest">Tiempo</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl text-center">
+                        <p class="text-2xl font-orbitron text-blue-300">CNC</p>
+                        <p class="text-[10px] uppercase text-gray-500 tracking-widest">Fabricación</p>
+                    </div>
+
+                </div>
+
+                <!-- MATERIAL -->
+                <p class="text-gray-500 text-sm mb-10 leading-relaxed">
+                    Fabricado con <span class="text-white font-semibold">poliuretano de alta densidad</span> combinado con 
+                    <span class="text-white font-semibold">filamento PLA</span>, logrando un balance óptimo entre 
+                    resistencia estructural, peso y precisión en manufactura.
+                </p>
+
+                <!-- TARJETAS -->
+                <div class="grid grid-cols-2 gap-6">
+
+                    <a href="analisis-cfd.html" class="block p-8 glass-card rounded-3xl hover:border-indigo-500 transition-all">
+                        <i class="fas fa-wind text-indigo-400 text-3xl mb-4"></i>
+                        <h4 class="font-bold text-xs uppercase tracking-widest text-indigo-400">Análisis CFD</h4>
+                        <p class="text-[10px] text-gray-500 mt-2">
+                            Optimización aerodinámica mediante simulación de flujo.
+                        </p>
+                    </a>
+
+                    <a href="manufactura-cnc.html" class="block p-8 glass-card rounded-3xl hover:border-blue-500 transition-all">
+                        <i class="fas fa-microchip text-blue-400 text-3xl mb-4"></i>
+                        <h4 class="font-bold text-xs uppercase tracking-widest text-blue-400">Manufactura CNC</h4>
+                        <p class="text-[10px] text-gray-500 mt-2">
+                            Precisión milimétrica en cada componente del vehículo.
+                        </p>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
 
     
 
@@ -414,6 +724,41 @@ body {
                 </div>
             </div>
 
+            <!-- 27 MARZO - LOGRO -->
+<div class="mb-16 flex flex-col md:flex-row-reverse items-center md:justify-between group">
+
+    <div class="md:w-1/2 md:text-left mb-4">
+        <span class="text-gray-300 font-orbitron font-bold text-sm">27 MAR 2026</span>
+    </div>
+
+    <!-- Punto destacado -->
+    <div class="w-6 h-6 bg-gray-300 rounded-full shadow-[0_0_25px_#d1d5db] group-hover:scale-125 transition"></div>
+
+    <div class="md:w-1/2 md:pr-10 mt-4">
+        <div class="glass-card p-6 rounded-2xl border border-gray-300/30 relative overflow-hidden">
+
+            <!-- Glow especial -->
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-300/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition"></div>
+
+            <!-- Línea superior tipo premio -->
+            <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-gray-300 to-blue-500"></div>
+
+            <h3 class="font-orbitron text-sm font-bold text-white relative z-10">
+                🥈 PODIO NACIONAL
+            </h3>
+
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed relative z-10">
+                Gallos Racing obtuvo el <span class="text-gray-200 font-bold">segundo lugar nacional</span> en la competencia 
+                <span class="text-white font-semibold">DGTI BP</span>, destacando en ingeniería, diseño y trabajo en equipo. 
+                
+                Además, se obtuvo el reconocimiento en 
+                <span class="text-blue-400 font-bold">presentación verbal</span>, consolidando nuestra capacidad de comunicación y visión del proyecto.
+            </p>
+
+        </div>
+    </div>
+</div>
+
         </div>
     </div>
 </section>
@@ -423,64 +768,219 @@ body {
 
     
 
-    <!-- Sponsors Section -->
-    <section id="patrocinadores" class="py-32 bg-black">
-        <div class="max-w-8xl mx-auto px-2 text-center">
-            <div class="reveal mb-20">
-
-                <h2 class="text-4xl font-orbitron font-bold text-center mb-16 italic "> NUESTROS <span class="ttext-gradient">PATROCINADORES</span> </h2>
-                <p class="text-gray-500 text-xs font-bold tracking-[0.2em] uppercase">Empresas que impulsan nuestro sueño</p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-24">
+<!-- Sponsors Section -->
+<section id="patrocinadores" class="py-32 bg-black">
     
-    <a href="hydrocell.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
-        <img src="static/img/WhatsApp Image 2026-01-07 at 10.59.46 AM.jpeg" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
-    </a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-    <a href="prax.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
-        <img src="static/img/Logo_prax_recurso1.png" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
-    </a>
-    
-    <a href="rexcue.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
-        <img src="static/img/rexcue/Rexcue.jpg" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
-    </a>
-    
-    <a href="lavoyo.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
-        <img src="static/img/logo_lavanderia.png" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
-    </a>
+        <!-- Título -->
+        <div class="reveal mb-20">
+            <h2 class="text-4xl font-orbitron font-bold italic">
+                NUESTROS <span class="text-gradient">PATROCINADORES</span>
+            </h2>
+            <p class="text-gray-500 text-xs font-bold tracking-[0.2em] uppercase mt-4">
+                Empresas que impulsan nuestro sueño
+            </p>
+        </div>
 
-     <a href="simath.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
-        <img src="static/img/simath.png" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
-    </a>
+        <!-- 🟣 PLATINUM -->
+        <div class="mb-20 reveal">
+            <h3 class="text-sm font-orbitron tracking-[0.3em] text-purple-400 uppercase mb-8">
+                Patrocinadores Platinum
+            </h3>
 
-     <a href="soluciones.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
-        <img src="static/img/saluciones.png" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
-    </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center">
 
-     <a href="https://www.uttehuacan.edu.mx/web/" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group reveal">
-        <img src="static/img/utt.png" alt="Patrocinador" class="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500">
-    </a>
+                <!-- SIMATH -->
+                <a href="simath.html" target="_blank"
+                   class="w-full max-w-md aspect-video glass-card p-8 flex items-center justify-center rounded-2xl group border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+                    <img src="static/img/simath.png"
+                         class="max-h-full object-contain filter grayscale group-hover:grayscale-0 transition duration-500">
+                </a>
 
-     <div class="w-full aspect-video glass-card flex items-center justify-center rounded-2xl reveal border-dashed" style="transition-delay: 0.3s">
-        <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo Aquí</span>
-    </div>
-</div>
+                <!-- PRAX -->
+                <a href="prax.html" target="_blank"
+                   class="w-full max-w-md aspect-video glass-card p-8 flex items-center justify-center rounded-2xl group border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+                    <img src="static/img/Logo_prax_recurso1.png"
+                         class="max-h-full object-contain filter grayscale group-hover:grayscale-0 transition duration-500">
+                </a>
 
-            <div class="mt-24 p-12 glass-card rounded-[3rem] max-w-4xl mx-auto border-indigo-500/20 reveal relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
-                <h3 class="text-3xl font-orbitron font-bold mb-6 italic tracking-tight">¿QUIERES SER PARTE DEL <span class="text-blue-400">ÉXITO</span>?</h3>
-                <p class="text-gray-400 mb-10 text-lg leading-relaxed max-w-2xl mx-auto font-light">
-                    Únete a la familia de Gallos Racing. Contamos con paquetes de patrocinio diseñados para dar la máxima visibilidad a tu marca en competencias nacionales e internacionales.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="https://www.instagram.com/gallos229_racingteam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-gradient px-12 py-5 rounded-2xl text-xs font-black tracking-[0.2em] uppercase w-full sm:w-auto">
-                        Solicitar Dossier de Patrocinio
-                    </a>
-                </div>
+                <!-- 
+                <div class="w-full max-w-md aspect-video glass-card p-8 flex items-center justify-center rounded-2xl group border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+                    <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                        Tu Logo Aquí
+                    </span>
+                </div>-->
+
             </div>
         </div>
-    </section>
+
+        <!-- 🔵 GOLD -->
+        <div class="reveal">
+            <h3 class="text-sm font-orbitron tracking-[0.3em] text-yellow-500 uppercase mb-10">
+                Patrocinadores Gold
+            </h3>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+
+                <a href="hydrocell.html" target="_blank"
+                   class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group">
+                    <img src="static/img/WhatsApp Image 2026-01-07 at 10.59.46 AM.jpeg"
+                         class="max-h-full object-contain filter grayscale group-hover:grayscale-0 transition duration-500">
+                </a>
+
+                <a href="rexcue.html" target="_blank"
+                   class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group">
+                    <img src="static/img/rexcue/Rexcue.jpg"
+                         class="max-h-full object-contain filter grayscale group-hover:grayscale-0 transition duration-500">
+                </a>
+
+                <a href="lavoyo.html" target="_blank"
+                   class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group">
+                    <img src="static/img/logo_lavanderia.png"
+                         class="max-h-full object-contain filter grayscale group-hover:grayscale-0 transition duration-500">
+                </a>
+
+                <a href="soluciones.html" target="_blank"
+                   class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group">
+                    <img src="static/img/saluciones.png"
+                         class="max-h-full object-contain filter grayscale group-hover:grayscale-0 transition duration-500">
+                </a>
+
+                <a href="https://www.uttehuacan.edu.mx/web/" target="_blank"
+                   class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group">
+                    <img src="static/img/utt.png"
+                         class="max-h-full object-contain filter grayscale group-hover:grayscale-0 transition duration-500">
+                </a>
+
+                <!-- Placeholder -->
+                <div class="w-full aspect-video glass-card flex items-center justify-center rounded-2xl border-dashed">
+                    <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                        Tu Logo Aquí
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-24 p-12 glass-card rounded-[3rem] max-w-4xl mx-auto border-indigo-500/20 reveal relative overflow-hidden">
+            
+            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+
+            <h3 class="text-3xl font-orbitron font-bold mb-6 italic tracking-tight">
+                ¿QUIERES SER PARTE DEL <span class="text-blue-400">ÉXITO</span>?
+            </h3>
+
+            <p class="text-gray-400 mb-10 text-lg leading-relaxed max-w-2xl mx-auto font-light">
+                Únete a la familia de Gallos Racing. Contamos con paquetes de patrocinio diseñados para dar la máxima visibilidad a tu marca en competencias nacionales e internacionales.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="https://www.instagram.com/gallos229_racingteam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                   target="_blank"
+                   class="btn-gradient px-12 py-5 rounded-2xl text-xs font-black tracking-[0.2em] uppercase w-full sm:w-auto">
+                    Solicitar Dossier de Patrocinio
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="beneficios" class="py-32 bg-[#050505] relative overflow-hidden">
+
+    <!-- Fondo decorativo -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#3B82F6_0%,_transparent_70%)]"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Título -->
+        <div class="text-center mb-24 reveal">
+            <h2 class="text-4xl md:text-5xl font-orbitron font-bold italic">
+                BENEFICIOS PARA <span class="text-gradient">PATROCINADORES</span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-500 mx-auto mt-6"></div>
+            <p class="text-gray-500 mt-6 uppercase tracking-[0.3em] text-xs font-semibold">
+                Impulsa tu marca con innovación y alto impacto
+            </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            <!-- Beneficio 1 -->
+            <div class="glass-card p-8 rounded-3xl reveal border-t-4 border-t-blue-500">
+                <i class="fas fa-bullhorn text-blue-400 text-3xl mb-6"></i>
+                <h3 class="font-orbitron text-sm font-bold text-white mb-3 uppercase tracking-widest">
+                    Visibilidad de Marca
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Presencia en el vehículo, uniformes oficiales y material digital del equipo durante competencias nacionales.
+                </p>
+            </div>
+
+            <!-- Beneficio 2 -->
+            <div class="glass-card p-8 rounded-3xl reveal border-t-4 border-t-indigo-500" style="transition-delay: 0.1s">
+                <i class="fas fa-users text-indigo-400 text-3xl mb-6"></i>
+                <h3 class="font-orbitron text-sm font-bold text-white mb-3 uppercase tracking-widest">
+                    Alcance Digital
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Difusión constante en redes sociales, aumentando el reconocimiento de tu marca ante una audiencia joven y tecnológica.
+                </p>
+            </div>
+
+            <!-- Beneficio 3 -->
+            <div class="glass-card p-8 rounded-3xl reveal border-t-4 border-t-blue-500" style="transition-delay: 0.2s">
+                <i class="fas fa-trophy text-blue-400 text-3xl mb-6"></i>
+                <h3 class="font-orbitron text-sm font-bold text-white mb-3 uppercase tracking-widest">
+                    Asociación con Éxito
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Relaciona tu empresa con un equipo ganador reconocido a nivel nacional en F1 in Schools.
+                </p>
+            </div>
+
+            <!-- Beneficio 4 -->
+            <div class="glass-card p-8 rounded-3xl reveal border-t-4 border-t-indigo-500">
+                <i class="fas fa-lightbulb text-indigo-400 text-3xl mb-6"></i>
+                <h3 class="font-orbitron text-sm font-bold text-white mb-3 uppercase tracking-widest">
+                    Innovación y Tecnología
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Vinculación directa con proyectos de ingeniería, diseño y manufactura avanzada.
+                </p>
+            </div>
+
+            <!-- Beneficio 5 -->
+            <div class="glass-card p-8 rounded-3xl reveal border-t-4 border-t-blue-500" style="transition-delay: 0.1s">
+                <i class="fas fa-handshake text-blue-400 text-3xl mb-6"></i>
+                <h3 class="font-orbitron text-sm font-bold text-white mb-3 uppercase tracking-widest">
+                    Networking
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Conexión con instituciones, empresas y talento emergente dentro del ecosistema F1 in Schools.
+                </p>
+            </div>
+
+            <!-- Beneficio 6 -->
+            <div class="glass-card p-8 rounded-3xl reveal border-t-4 border-t-indigo-500" style="transition-delay: 0.2s">
+                <i class="fas fa-star text-indigo-400 text-3xl mb-6"></i>
+                <h3 class="font-orbitron text-sm font-bold text-white mb-3 uppercase tracking-widest">
+                    Presencia en Eventos
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Participación indirecta en exhibiciones, competencias y presentaciones oficiales del equipo.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="py-20 border-t border-white/5 bg-[#030303]">
@@ -494,8 +994,8 @@ body {
                 </div>
                 <div class="flex space-x-8 text-2xl">
                     <a href="https://www.instagram.com/gallos229_racingteam" target="_blank" class="text-gray-500 hover:text-blue-400 transition-all transform hover:scale-110"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-gray-500 hover:text-blue-400 transition-all transform hover:scale-110"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-gray-500 hover:text-blue-400 transition-all transform hover:scale-110"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61588662238076&ref=PROFILE_EDIT_ig_profile_ac" class="text-gray-500 hover:text-blue-400 transition-all transform hover:scale-110"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@gallos.racing" class="text-gray-500 hover:text-blue-400 transition-all transform hover:scale-110"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left border-y border-white/5 py-10 mb-10">
@@ -505,7 +1005,7 @@ body {
                 </div>
                 <div>
                     <h5 class="font-bold text-xs uppercase tracking-widest mb-4 text-blue-400">Competencia</h5>
-                    <p class="text-gray-500 text-sm italic">F1 in Schools Mexico 2026 Dgti/BP</p>
+                    <p class="text-gray-500 text-sm italic">Final Nacional Stem Racing</p>
                 </div>
                 <div>
                     <h5 class="font-bold text-xs uppercase tracking-widest mb-4 text-blue-400">Contacto</h5>
@@ -546,7 +1046,7 @@ body {
         window.dispatchEvent(new Event('scroll'));
 
         // Contador de tiempo
-        const countdownDate = new Date("March 26, 2026 08:00:00").getTime();
+        const countdownDate = new Date("July 10, 2026 08:00:00").getTime();
 
         const x = setInterval(function() {
             const now = new Date().getTime();
