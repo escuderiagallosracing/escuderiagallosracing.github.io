@@ -158,6 +158,18 @@ body {
     100% { transform: translateX(100%); }
 }
 
+
+#speedCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
     </style>
 </head>
 
@@ -214,7 +226,7 @@ body {
             
             <!-- Contador -->
             <div class="mb-12 reveal">
-                <p class="font-orbitron text-xs tracking-[0.4em] mb-6 text-gray-400 uppercase">Tiempo restante para la final nacional</p>
+                <p class="font-orbitron text-xs tracking-[0.4em] mb-6 text-gray-400 uppercase">Tiempo restante para la competencia</p>
                 <div id="countdown" class="flex flex-wrap justify-center gap-4 md:gap-8 font-orbitron">
                     <div class="countdown-box border-b-4 border-b-indigo-500">
                         <span id="days" class="block text-3xl md:text-5xl font-bold">00</span>
@@ -243,6 +255,12 @@ body {
             </div>
         </div>
     </section>
+
+
+
+
+
+
 
     
 <!-- MISIÓN & VISIÓN -->
@@ -335,17 +353,14 @@ body {
 </section>
     
 
-    <!-- segundo lugar -->
-<section id="logro" class="py-32 bg-black relative overflow-hidden">
+    <!-- SEccion con particulas -->
+<section id="particles-speed" class="relative h-screen bg-black overflow-hidden">
 
-    <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-    <div class="w-full h-full bg-[linear-gradient(120deg,transparent_40%,#3B82F6_50%,transparent_60%)] animate-pulse"></div>
-</div>
+    <!-- Canvas -->
+    <canvas id="speedCanvas"></canvas>
 
-    <!-- Fondo decorativo -->
-    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#3B82F6_0%,_transparent_70%)]"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Contenido encima -->
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Título -->
         <div class="text-center mb-20 reveal">
@@ -417,6 +432,7 @@ body {
         </div>
 
     </div>
+
 </section>
 
     <!-- Team Section -->
@@ -860,8 +876,75 @@ body {
                     </span>
                 </div>
 
+                <div class="w-full aspect-video glass-card flex items-center justify-center rounded-2xl border-dashed">
+                    <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                        Tu Logo Aquí
+                    </span>
+                </div>
+
+                <div class="w-full aspect-video glass-card flex items-center justify-center rounded-2xl border-dashed">
+                    <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                        Tu Logo Aquí
+                    </span>
+                </div>
+
             </div>
         </div>
+
+<!-- ⚪ SILVER -->
+<div class="mt-20 reveal">
+    <h3 class="text-sm font-orbitron tracking-[0.3em] text-gray-400 uppercase mb-10">
+        Patrocinadores Silver
+    </h3>
+
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center justify-items-center">
+
+        <!-- LOGO 
+        <div class="w-full aspect-video glass-card p-4 flex items-center justify-center rounded-xl group opacity-70 hover:opacity-100 transition">
+            <img src="static/img/ejemplo1.png"
+                 class="max-h-full object-contain filter grayscale group-hover:grayscale-0 transition duration-500">
+        </div>
+
+        <div class="w-full aspect-video glass-card p-4 flex items-center justify-center rounded-xl group opacity-70 hover:opacity-100 transition">
+            <img src="static/img/ejemplo2.png"
+                 class="max-h-full object-contain filter grayscale group-hover:grayscale-0 transition duration-500">
+        </div>
+        -->
+
+        <!-- Placeholder -->
+        <div class="w-full aspect-video glass-card flex items-center justify-center rounded-xl border-dashed opacity-50">
+            <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                Tu Logo
+            </span>
+        </div>
+
+        <div class="w-full aspect-video glass-card flex items-center justify-center rounded-xl border-dashed opacity-50">
+            <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                Tu Logo
+            </span>
+        </div>
+
+        <div class="w-full aspect-video glass-card flex items-center justify-center rounded-xl border-dashed opacity-50">
+            <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                Tu Logo
+            </span>
+        </div>
+
+        <div class="w-full aspect-video glass-card flex items-center justify-center rounded-xl border-dashed opacity-50">
+            <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                Tu Logo
+            </span>
+        </div>
+
+        <div class="w-full aspect-video glass-card flex items-center justify-center rounded-xl border-dashed opacity-50">
+            <span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                Tu Logo
+            </span>
+        </div>
+
+    </div>
+</div>
+
 
         <!-- CTA -->
         <div class="mt-24 p-12 glass-card rounded-[3rem] max-w-4xl mx-auto border-indigo-500/20 reveal relative overflow-hidden">
@@ -1081,29 +1164,108 @@ body {
             });
         });
 
-       document.addEventListener('mousemove', (e) => {
-        const rastro = document.createElement('div');
-        rastro.className = 'mouse-trail';
-        
-        // Ajustamos la posición para que salga del centro del puntero
-        rastro.style.left = (e.pageX - 4) + 'px';
-        rastro.style.top = (e.pageY - 4) + 'px';
-        
-        document.body.appendChild(rastro);
-        
-        // Borramos el elemento después de medio segundo para no saturar la memoria
-        setTimeout(() => {
-            rastro.remove();
-        }, 500);
-    });
+       
 
-    window.addEventListener('scroll', () => {
-    const car = document.querySelector('.parallax-car');
-    if(car) {
-        let scrollValue = window.scrollY;
-        car.style.transform = `translateY(${scrollValue * 0.15}px) rotate(${scrollValue * 0.01}deg)`;
+
+
+
+const canvas = document.getElementById("speedCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+// Crear partículas
+function createParticles(num) {
+    particles = [];
+    for (let i = 0; i < num; i++) {
+        particles.push({
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            angle: Math.random() * Math.PI * 2,
+            speed: Math.random() * 1 + 0.5,
+            size: Math.random() * 2
+        });
     }
+}
+
+function drawParticles() {
+    ctx.fillStyle = "rgba(0,0,0,1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(p => {
+
+        let vx = Math.cos(p.angle) * p.speed;
+        let vy = Math.sin(p.angle) * p.speed;
+
+        let prevX = p.x;
+        let prevY = p.y;
+
+        p.x += vx;
+        p.y += vy;
+
+        p.speed *= 1.025;
+
+        // 🎨 Colores dinámicos (cyan, azul, morado)
+        const colors = [
+            "0,255,255",   // cyan
+            "59,130,246",  // azul
+            "168,85,247"   // morado
+        ];
+        let color = colors[Math.floor(Math.random() * colors.length)];
+
+        // ✨ Glow
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = `rgba(${color},0.8)`;
+
+        // ⚡ Rayo (línea en lugar de punto)
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(${color},0.9)`;
+        ctx.lineWidth = p.size;
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+
+        ctx.shadowBlur = 0;
+
+        // Reset
+        if (
+            p.x < 0 || p.x > canvas.width ||
+            p.y < 0 || p.y > canvas.height
+        ) {
+            p.x = canvas.width / 2;
+            p.y = canvas.height / 2;
+            p.speed = Math.random() * 2;
+            p.angle = Math.random() * Math.PI * 2;
+        }
+    });
+}
+
+// Loop animación
+function animate() {
+    drawParticles();
+    requestAnimationFrame(animate);
+}
+
+// Resize responsive
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    createParticles(200);
 });
+
+// INIT
+createParticles(50);
+animate();
+
+
+
+
+
+
+
     </script>
     
 </body>
