@@ -78,6 +78,7 @@ body {
 
 .text-gradient {
     background: linear-gradient(90deg, var(--cyan), var(--purple));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -86,6 +87,7 @@ body {
 .mouse-trail {
     position: absolute;
     width: 8px;
+    background-clip: text;
     height: 8px;
     background: linear-gradient(to right, var(--cyan), var(--purple));
     pointer-events: none;
@@ -180,6 +182,87 @@ body {
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.05);
     min-width: 90px;
+}
+
+.team-card {
+    perspective: 1000px;
+    height: 380px;
+}
+
+.team-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform .8s;
+    transform-style: preserve-3d;
+}
+
+.team-card:hover .team-card-inner {
+    transform: rotateY(180deg);
+}
+
+.team-card-front,
+.team-card-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 2rem;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.team-card-front {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(126,53,228,.25);
+    backdrop-filter: blur(14px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.team-card-back {
+    background: linear-gradient(145deg,#0f0094,#7e35e4);
+    transform: rotateY(180deg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.team-card-front::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,transparent,#09fcff10,transparent);
+}
+
+.team-icon{
+    width:110px;
+    height:110px;
+    border-radius:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:1.5rem;
+    background:rgba(9,252,255,.08);
+    border:1px solid rgba(9,252,255,.3);
+    font-size:42px;
+    color:#09fcff;
+}
+
+.team-card-back ul{
+    margin-top:1rem;
+    text-align:left;
+    font-size:.9rem;
+    color:#e5e5e5;
+    line-height:1.8;
+}
+
+.team-card-back p{
+    color:#d4d4d8;
 }
     </style>
 </head>
@@ -355,65 +438,324 @@ body {
         </div>
     </section>
 
-    <section id="equipo" class="py-32 bg-[#050505] relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-24 reveal">
-                <h2 class="text-4xl md:text-5xl font-orbitron font-bold">NUESTRA <span class="text-gradient">ALINEACIÓN</span></h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-[#7e35e4] to-[#09fcff] mx-auto mt-6"></div>
-                <p class="text-gray-500 mt-6 uppercase tracking-[0.3em] text-xs font-semibold">Pasión por la ingeniería y el diseño</p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-[#0f0094] reveal">
-                    <div class="w-28 h-28 bg-[#0f0094]/10 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-[#7e35e4]/30 transform rotate-3">
-                        <i class="fas fa-crown text-4xl text-[#09fcff] transform -rotate-3"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold font-orbitron mb-2">José Pérez</h3>
-                    <p class="text-[#09fcff] text-[10px] uppercase font-black tracking-[0.3em]">Líder de Equipo</p>
-                </div>
+  <section id="equipo" class="py-32 bg-[#050505]">
+    <div class="max-w-7xl mx-auto px-4">
 
-                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-[#7e35e4] reveal" style="transition-delay: 0.1s">
-                    <div class="w-28 h-28 bg-[#7e35e4]/10 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-[#09fcff]/30 transform -rotate-3">
-                        <i class="fas fa-palette text-4xl text-[#7e35e4] transform rotate-3"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold font-orbitron mb-2">Josami Muñoz</h3>
-                    <p class="text-[#7e35e4] text-[10px] uppercase font-black tracking-[0.3em]">Diseñadora Gráfica</p>
-                </div>
+        <div class="text-center mb-20">
+            <h2 class="text-5xl font-orbitron font-bold">
+                NUESTRA <span class="text-gradient">ALINEACIÓN</span>
+            </h2>
 
-                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-[#0f0094] reveal" style="transition-delay: 0.2s">
-                    <div class="w-28 h-28 bg-[#0f0094]/10 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-[#7e35e4]/30 transform rotate-3">
-                        <i class="fas fa-car text-4xl text-[#09fcff] transform -rotate-3"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold font-orbitron mb-2">Jimena Monterrosa</h3>
-                    <p class="text-[#09fcff] text-[10px] uppercase font-black tracking-[0.3em]">Diseñadora del Coche</p>
-                </div>
+            <div class="w-24 h-1 bg-gradient-to-r from-[#7e35e4] to-[#09fcff] mx-auto mt-6"></div>
 
-                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-[#7e35e4] reveal">
-                    <div class="w-28 h-28 bg-[#7e35e4]/10 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-[#09fcff]/30 transform -rotate-3">
-                        <i class="fas fa-tools text-4xl text-[#7e35e4] transform rotate-3"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold font-orbitron mb-2">Asaf Flores</h3>
-                    <p class="text-[#7e35e4] text-[10px] uppercase font-black tracking-[0.3em]">Manufactura</p>
-                </div>
-
-                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-[#0f0094] reveal" style="transition-delay: 0.1s">
-                    <div class="w-28 h-28 bg-[#0f0094]/10 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-[#7e35e4]/30 transform rotate-3">
-                        <i class="fas fa-handshake text-4xl text-[#09fcff] transform -rotate-3"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold font-orbitron mb-2">Ivan Morales</h3>
-                    <p class="text-[#09fcff] text-[10px] uppercase font-black tracking-[0.3em]">Patrocinios</p>
-                </div>
-
-                <div class="glass-card p-10 rounded-[2rem] text-center border-t-4 border-t-[#7e35e4] reveal" style="transition-delay: 0.2s">
-                    <div class="w-28 h-28 bg-[#7e35e4]/10 rounded-2xl mx-auto mb-6 flex items-center justify-center border border-[#09fcff]/30 transform rotate-3">
-                        <i class="fas fa-dollar-sign text-4xl text-[#7e35e4] transform rotate-3"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold font-orbitron mb-2">Sandoval Salvador</h3>
-                    <p class="text-[#7e35e4] text-[10px] uppercase font-black tracking-[0.3em]">Finanzas</p>
-                </div>
-            </div>
+            <p class="text-gray-400 mt-6 uppercase tracking-[0.3em] text-xs">
+                Pasa el cursor sobre una tarjeta para conocer más del equipo
+            </p>
         </div>
-    </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+   <!-- José -->
+<div class="team-card reveal">
+    <div class="team-card-inner">
+
+        <!-- CARA FRONTAL: Fondo azul translúcido con espacio para foto -->
+        <div class="team-card-front bg-blue-950/40 border border-blue-500/20 backdrop-blur-md p-6 rounded-[2rem] flex flex-col justify-center items-center">
+            
+            <!-- Contenedor de foto con tamaño e ícono de respaldo fijos -->
+            <div class="w-32 h-32 rounded-2xl mx-auto mb-6 overflow-hidden border border-blue-500/30 transform rotate-3 bg-blue-950/50 flex items-center justify-center relative">
+                <!-- Ícono de corona/silueta de respaldo (siempre presente al fondo) -->
+                <i class="fas fa-crown text-4xl text-blue-500/40 absolute z-0 drop-shadow-[0_0_10px_rgba(59,130,246,0.2)]"></i>
+                
+                <!-- Imagen real: si falla por un 404, se oculta limpiamente con opacity-0 -->
+                <img src="static/img/jose.png" alt="José Pérez" class="absolute inset-0 w-full h-full object-cover transform -rotate-3 transition-all duration-300 hover:scale-110 z-10" onerror="this.style.opacity='0';">
+            </div>
+
+            <h3 class="text-2xl font-bold font-orbitron text-white">
+                José Pérez
+            </h3>
+
+            <p class="text-blue-400 uppercase tracking-[0.25em] text-xs mt-2 font-semibold">
+                Líder de Equipo
+            </p>
+        </div>
+
+        <!-- CARA TRASERA: Detalle del rol y viñetas en azul -->
+        <div class="team-card-back bg-blue-950/50 border border-blue-500/30 backdrop-blur-md p-8 rounded-[2rem] text-center flex flex-col justify-center items-center">
+            <h3 class="text-2xl font-bold mb-3 font-orbitron text-blue-400">
+                José Pérez
+            </h3>
+
+            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Coordina el desarrollo del proyecto y la estrategia general del equipo para maximizar el rendimiento dentro de STEM Racing.
+            </p>
+
+            <ul class="text-left text-xs text-gray-300 space-y-1.5 font-sans">
+                <li class="flex items-center gap-2"><span class="text-blue-400">✔</span> Dirección del proyecto</li>
+                <li class="flex items-center gap-2"><span class="text-blue-400">✔</span> Planeación estratégica</li>
+                <li class="flex items-center gap-2"><span class="text-blue-400">✔</span> Organización del equipo</li>
+                <li class="flex items-center gap-2"><span class="text-blue-400">✔</span> Toma de decisiones</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<!-- Josami -->
+<div class="team-card reveal">
+    <div class="team-card-inner">
+
+        <!-- CARA FRONTAL: Fondo cyan translúcido con espacio para foto -->
+        <div class="team-card-front bg-cyan-950/20 border border-[#09fcff]/20 backdrop-blur-md p-6 rounded-[2rem] flex flex-col justify-center items-center">
+            
+            <!-- Contenedor de foto con tamaño e ícono de respaldo fijos -->
+            <div class="w-32 h-32 rounded-2xl mx-auto mb-6 overflow-hidden border border-[#09fcff]/30 transform -rotate-3 bg-cyan-950/50 flex items-center justify-center relative">
+                <!-- Ícono de paleta de pintura/diseño de respaldo (siempre presente al fondo) -->
+                <i class="fas fa-palette text-4xl text-[#09fcff]/40 absolute z-0 drop-shadow-[0_0_10px_rgba(9,252,255,0.2)]"></i>
+                
+                <!-- Imagen real: si falla por un 404, se oculta limpiamente con opacity-0 -->
+                <img src="static/img/josa.png" alt="Josami Irais" class="absolute inset-0 w-full h-full object-cover transform rotate-3 transition-all duration-300 hover:scale-110 z-10" onerror="this.style.opacity='0';">
+            </div>
+
+            <h3 class="text-2xl font-bold font-orbitron text-white">
+                Josami Irais
+            </h3>
+
+            <p class="text-[#09fcff] uppercase tracking-[0.25em] text-xs mt-2 font-semibold">
+                Diseñadora Gráfica
+            </p>
+        </div>
+
+        <!-- CARA TRASERA: Detalle del rol y viñetas en cyan -->
+        <div class="team-card-back bg-cyan-950/40 border border-[#09fcff]/30 backdrop-blur-md p-8 rounded-[2rem] text-center flex flex-col justify-center items-center">
+            <h3 class="text-2xl font-bold mb-3 font-orbitron text-[#09fcff]">
+                Josami Irais
+            </h3>
+
+            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Encargada de dar vida a la identidad visual, gestionando el diseño del logotipo, los uniformes, el portafolio y los elementos gráficos del stand.
+            </p>
+
+            <ul class="text-left text-xs text-gray-300 space-y-1.5 font-sans">
+                <li class="flex items-center gap-2"><span class="text-[#09fcff]">✔</span> Identidad de marca</li>
+                <li class="flex items-center gap-2"><span class="text-[#09fcff]">✔</span> Diseño de logotipo</li>
+                <li class="flex items-center gap-2"><span class="text-[#09fcff]">✔</span> Gestión de uniformes</li>
+                <li class="flex items-center gap-2"><span class="text-[#09fcff]">✔</span> Elementos del stand</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<!-- Asaf -->
+<div class="team-card reveal">
+    <div class="team-card-inner">
+
+        <!-- CARA FRONTAL: Fondo morado translúcido con espacio para foto -->
+        <div class="team-card-front bg-purple-950/20 border border-purple-500/30 backdrop-blur-md p-6 rounded-[2rem] flex flex-col justify-center items-center">
+            
+            <!-- Contenedor de foto con tamaño e ícono de respaldo fijos -->
+            <div class="w-32 h-32 rounded-2xl mx-auto mb-6 overflow-hidden border border-purple-500/30 transform rotate-3 bg-purple-950/50 flex items-center justify-center relative">
+                <!-- Ícono de herramientas/ingeniería de respaldo (siempre presente al fondo) -->
+                <i class="fas fa-tools text-4xl text-purple-500/40 absolute z-0 drop-shadow-[0_0_10px_rgba(168,85,247,0.2)]"></i>
+                
+                <!-- Imagen real: si falla por un 404, se oculta limpiamente con opacity-0 -->
+                <img src="static/img/asaf.png" alt="Asaf Flores" class="absolute inset-0 w-full h-full object-cover transform -rotate-3 transition-all duration-300 hover:scale-110 z-10" onerror="this.style.opacity='0';">
+            </div>
+
+            <h3 class="text-2xl font-bold font-orbitron text-white">
+                Asaf Flores
+            </h3>
+
+            <p class="text-purple-400 uppercase tracking-[0.25em] text-xs mt-2 font-semibold">
+                Manufactura
+            </p>
+        </div>
+
+        <!-- CARA TRASERA: Detalle del rol y viñetas en morado -->
+        <div class="team-card-back bg-purple-950/40 border border-purple-500/40 backdrop-blur-md p-8 rounded-[2rem] text-center flex flex-col justify-center items-center">
+            <h3 class="text-2xl font-bold mb-3 font-orbitron text-purple-400">
+                Asaf Flores
+            </h3>
+
+            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Líder del proceso de manufactura, encargado del mecanizado CNC, impresión 3D de componentes clave y ensamble de precisión del monoplaza.
+            </p>
+
+            <ul class="text-left text-xs text-gray-300 space-y-1.5 font-sans">
+                <li class="flex items-center gap-2"><span class="text-purple-400">✔</span> Mecanizado CNC</li>
+                <li class="flex items-center gap-2"><span class="text-purple-400">✔</span> Impresión 3D (FDM/PETG)</li>
+                <li class="flex items-center gap-2"><span class="text-purple-400">✔</span> Ensamble de precisión</li>
+                <li class="flex items-center gap-2"><span class="text-purple-400">✔</span> Control de calidad física</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<!-- Sandoval -->
+<div class="team-card reveal">
+    <div class="team-card-inner">
+
+        <!-- CARA FRONTAL: Fondo azul translúcido con espacio para foto -->
+        <div class="team-card-front bg-blue-950/40 border border-blue-500/20 backdrop-blur-md p-6 rounded-[2rem] flex flex-col justify-center items-center">
+            
+            <!-- Contenedor de foto con tamaño e ícono de respaldo fijos -->
+            <div class="w-32 h-32 rounded-2xl mx-auto mb-6 overflow-hidden border border-blue-500/30 transform -rotate-3 bg-blue-950/50 flex items-center justify-center relative">
+                <!-- Ícono de finanzas/gráfica de respaldo (siempre presente al fondo) -->
+                <i class="fas fa-chart-pie text-4xl text-blue-500/40 absolute z-0 drop-shadow-[0_0_10px_rgba(59,130,246,0.2)]"></i>
+                
+                <!-- Imagen real: si falla por un 404, se oculta limpiamente con opacity-0 -->
+                <img src="static/img/sandoval.png" alt="Sandoval Salvador" class="absolute inset-0 w-full h-full object-cover transform rotate-3 transition-all duration-300 hover:scale-110 z-10" onerror="this.style.opacity='0';">
+            </div>
+
+            <h3 class="text-2xl font-bold font-orbitron text-white">
+                Sandoval Salvador
+            </h3>
+
+            <p class="text-blue-400 uppercase tracking-[0.25em] text-xs mt-2 font-semibold">
+                Finanzas
+            </p>
+        </div>
+
+        <!-- CARA TRASERA: Detalle del rol y viñetas en azul -->
+        <div class="team-card-back bg-blue-950/50 border border-blue-500/30 backdrop-blur-md p-8 rounded-[2rem] text-center flex flex-col justify-center items-center">
+            <h3 class="text-2xl font-bold mb-3 font-orbitron text-blue-400">
+                Sandoval Salvador
+            </h3>
+
+            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Administrador del presupuesto total, encargado de los costos de materiales, control de egresos, la viabilidad financiera y el Retorno de Inversión (ROI).
+            </p>
+
+            <ul class="text-left text-xs text-gray-300 space-y-1.5 font-sans">
+                <li class="flex items-center gap-2"><span class="text-blue-400">✔</span> Gestión de presupuesto</li>
+                <li class="flex items-center gap-2"><span class="text-blue-400">✔</span> Análisis de costos de materiales</li>
+                <li class="flex items-center gap-2"><span class="text-blue-400">✔</span> Control de egresos</li>
+                <li class="flex items-center gap-2"><span class="text-blue-400">✔</span> Retorno de Inversión (ROI)</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+            
+<!-- Ivan -->
+<div class="team-card reveal">
+    <div class="team-card-inner">
+
+        <!-- CARA FRONTAL: Fondo cyan translúcido con espacio para foto -->
+        <div class="team-card-front bg-cyan-950/20 border border-[#09fcff]/20 backdrop-blur-md p-6 rounded-[2rem] flex flex-col justify-center items-center">
+            
+            <!-- Contenedor de foto con tamaño e ícono de respaldo fijos -->
+            <div class="w-32 h-32 rounded-2xl mx-auto mb-6 overflow-hidden border border-[#09fcff]/30 transform rotate-3 bg-cyan-950/50 flex items-center justify-center relative">
+                <!-- Ícono de megáfono/marketing de respaldo (siempre presente al fondo) -->
+                <i class="fas fa-bullhorn text-4xl text-[#09fcff]/40 absolute z-0 drop-shadow-[0_0_10px_rgba(9,252,255,0.2)]"></i>
+                
+                <!-- Imagen real: si falla por un 404, se oculta limpiamente con opacity-0 -->
+                <img src="static/img/ivan.png" alt="Ivan Jeshua" class="absolute inset-0 w-full h-full object-cover transform -rotate-3 transition-all duration-300 hover:scale-110 z-10" onerror="this.style.opacity='0';">
+            </div>
+
+            <h3 class="text-2xl font-bold font-orbitron text-white">
+                Ivan Jeshua
+            </h3>
+
+            <p class="text-[#09fcff] uppercase tracking-[0.25em] text-xs mt-2 font-semibold text-center">
+                Marketing y Patrocinios
+            </p>
+        </div>
+
+        <!-- CARA TRASERA: Detalle del rol y viñetas en cyan -->
+        <div class="team-card-back bg-cyan-950/40 border border-[#09fcff]/30 backdrop-blur-md p-8 rounded-[2rem] text-center flex flex-col justify-center items-center">
+            <h3 class="text-2xl font-bold mb-3 font-orbitron text-[#09fcff]">
+                Ivan Jeshua
+            </h3>
+
+            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Estratega de vinculación, encargado de negociar con empresas patrocinadoras, gestionar recursos externos y coordinar el plan de marketing del equipo.
+            </p>
+
+            <ul class="text-left text-xs text-gray-300 space-y-1.5 font-sans">
+                <li class="flex items-center gap-2"><span class="text-[#09fcff]">✔</span> Alianzas comerciales</li>
+                <li class="flex items-center gap-2"><span class="text-[#09fcff]">✔</span> Negociación con patrocinadores</li>
+                <li class="flex items-center gap-2"><span class="text-[#09fcff]">✔</span> Plan de marketing digital</li>
+                <li class="flex items-center gap-2"><span class="text-[#09fcff]">✔</span> Gestión de recursos externos</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- Jimena -->
+<div class="team-card reveal">
+    <div class="team-card-inner">
+
+        <!-- CARA FRONTAL: Fondo morado translúcido con espacio para foto -->
+        <div class="team-card-front bg-purple-950/20 border border-purple-500/30 backdrop-blur-md p-6 rounded-[2rem] flex flex-col justify-center items-center">
+            
+            <!-- Contenedor de foto con tamaño e ícono de respaldo fijos -->
+            <div class="w-32 h-32 rounded-2xl mx-auto mb-6 overflow-hidden border border-purple-500/30 transform -rotate-3 bg-purple-950/50 flex items-center justify-center relative">
+                <!-- Ícono de auto/fórmula de respaldo (siempre presente al fondo) -->
+                <i class="fas fa-car text-4xl text-purple-500/40 absolute z-0 drop-shadow-[0_0_10px_rgba(168,85,247,0.2)]"></i>
+                
+                <!-- Imagen real: si falla por un 404, se oculta limpiamente con opacity-0 -->
+                <img src="static/img/jimena.png" alt="Jimena Monterrosa" class="absolute inset-0 w-full h-full object-cover transform rotate-3 transition-all duration-300 hover:scale-110 z-10" onerror="this.style.opacity='0';">
+            </div>
+
+            <h3 class="text-2xl font-bold font-orbitron text-white">
+                Jimena Monterrosa
+            </h3>
+
+            <p class="text-purple-400 uppercase tracking-[0.25em] text-xs mt-2 font-semibold">
+                Diseñadora del Coche
+            </p>
+        </div>
+
+        <!-- CARA TRASERA: Detalle del rol y viñetas en morado -->
+        <div class="team-card-back bg-purple-950/40 border border-purple-500/40 backdrop-blur-md p-8 rounded-[2rem] text-center flex flex-col justify-center items-center">
+            <h3 class="text-2xl font-bold mb-3 font-orbitron text-purple-400">
+                Jimena Monterrosa
+            </h3>
+
+            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Especialista en modelado 3D (CAD), enfocada en optimizar la geometría del monoplaza y analizar la resistencia del aire para maximizar la velocidad en pista.
+            </p>
+
+            <ul class="text-left text-xs text-gray-300 space-y-1.5 font-sans">
+                <li class="flex items-center gap-2"><span class="text-purple-400">✔</span> Modelado 3D (CAD)</li>
+                <li class="flex items-center gap-2"><span class="text-purple-400">✔</span> Optimización geométrica</li>
+                <li class="flex items-center gap-2"><span class="text-purple-400">✔</span> Análisis de resistencia CFD</li>
+                <li class="flex items-center gap-2"><span class="text-purple-400">✔</span> Eficiencia aerodinámica</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+            <!-- Repite el mismo formato para los demás integrantes -->
+
+            <!-- Josami -->
+            <!-- Icono: fa-palette -->
+            <!-- Rol: Diseñadora Gráfica -->
+
+            <!-- Jimena -->
+            <!-- Icono: fa-car -->
+            <!-- Rol: Diseñadora del Coche -->
+
+            <!-- Asaf -->
+            <!-- Icono: fa-tools -->
+            <!-- Rol: Manufactura -->
+
+            <!-- Ivan -->
+            <!-- Icono: fa-handshake -->
+            <!-- Rol: Patrocinios -->
+
+            <!-- Salvador -->
+            <!-- Icono: fa-dollar-sign -->
+            <!-- Rol: Finanzas -->
+
+        </div>
+    </div>
+</section>
 
     <section class="relative py-24 bg-black overflow-hidden">
         <div class="marquee-wrapper">
@@ -619,15 +961,16 @@ body {
                 <h3 class="text-sm font-orbitron tracking-[0.3em] text-[#09fcff] uppercase mb-10 font-bold">Patrocinadores Gold</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
                     
-                    <a href="rexcue.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group">
+                    <a href="rexcue.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group col-span-2 md:col-span-1">
                         <img src="static/img/Rexcue.png" class="max-h-full object-contain filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition duration-500">
                     </a>
-                    <a href="lavoyo.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group">
+                    <a href="lavoyo.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group col-span-2 md:col-span-1">
                         <img src="static/img/logo_lavanderia.png" class="max-h-full object-contain filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition duration-500">
                     </a>
-                    <a href="soluciones.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group">
+                    <a href="soluciones.html" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group col-span-2 md:col-span-1">
                         <img src="static/img/saluciones.png" class="max-h-full object-contain filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition duration-500">
                     </a>
+                    
                     <a href="https://www.uttehuacan.edu.mx/web/" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group col-span-2 md:col-span-1">
                         <img src="static/img/utt.png" class="max-h-full object-contain filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition duration-500">
                     </a>
@@ -660,6 +1003,19 @@ body {
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center justify-items-center">
                    <a href="" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group col-span-2 md:col-span-1">
                         <img src="static/img/RINCON DEL PAPEL.png" class="max-h-full object-contain filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition duration-500">
+                    </a>
+                    <div class="w-full aspect-video glass-card flex items-center justify-center rounded-xl border-dashed border-white/5 opacity-40"><span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo</span></div>
+                    <div class="w-full aspect-video glass-card flex items-center justify-center rounded-xl border-dashed border-white/5 opacity-40"><span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo</span></div>
+                    <div class="w-full aspect-video glass-card flex items-center justify-center rounded-xl border-dashed border-white/5 opacity-40"><span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo</span></div>
+                    <div class="w-full aspect-video glass-card flex items-center justify-center rounded-xl border-dashed border-white/5 opacity-40"><span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo</span></div>
+                </div>
+            </div>
+
+            <div class="mt-20 reveal">
+                <h3 class="text-sm font-orbitron tracking-[0.3em] text-blue-400 uppercase mb-10 font-bold">Socios y colaboradores</h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center justify-items-center">
+                   <a href="https://www.instagram.com/grupovoltos/" target="_blank" class="w-full aspect-video glass-card p-6 flex items-center justify-center rounded-2xl group col-span-2 md:col-span-1">
+                        <img src="static/img/logo voltos-02.png" class="max-h-full object-contain filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition duration-500">
                     </a>
                     <div class="w-full aspect-video glass-card flex items-center justify-center rounded-xl border-dashed border-white/5 opacity-40"><span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo</span></div>
                     <div class="w-full aspect-video glass-card flex items-center justify-center rounded-xl border-dashed border-white/5 opacity-40"><span class="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Tu Logo</span></div>
